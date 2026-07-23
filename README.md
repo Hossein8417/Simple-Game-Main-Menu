@@ -121,8 +121,8 @@ This project is intended for portfolio purposes and showcases:
 
 ## 📸 Preview
 
-> Screenshots and GIFs will be added as development progresses.
-
+![Photo](Media/Screenshot 2026-07-23 191005.png)
+![Video](Media/gif.gif)
 ---
 
 ## 📄 License
