@@ -4,11 +4,8 @@ using UnityEngine.UI;
 public class EnterCanvasItems : MonoBehaviour
 {
     [Header("Panel")]
-    public GameObject EnterPanel;
-
+    public GameObject EnterMenuPanel;
 
     [Header("Items")]
-    public TMP_Text VersionText;
-    public Button EnterButton; 
-
+    public TMP_Text EnterText; 
 }

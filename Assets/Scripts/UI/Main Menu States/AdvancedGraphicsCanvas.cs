@@ -19,4 +19,5 @@ public class AdvancedGraphicsCanvas : MonoBehaviour
     public TMP_Dropdown ReflectionsDropdown;
     public TMP_Dropdown AmbientOcclusionDropdown;
     public Slider GraphicsUsageSlider;
+
 }
