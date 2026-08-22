@@ -5,9 +5,12 @@ public class VersionShower : MonoBehaviour
     [SerializeField]
     private TMP_Text versionText;
 
+    [SerializeField]
+    private string versionString;
+
+
     private void Start()
     {
-        string version = "v1.60";
-        versionText.text = version;
+        versionText.text = versionString;
     }
 }
