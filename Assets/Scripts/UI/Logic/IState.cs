@@ -1,6 +1,6 @@
 public interface IState
 {
-    void Show(UIManager manager);
-    void UpdateState(UIManager manager);
-    void Hide(UIManager manager);
+    void Show();
+    void UpdateState();
+    void Hide();
 }
