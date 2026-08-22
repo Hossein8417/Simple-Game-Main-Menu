@@ -16,8 +16,7 @@ public class AdvancedGraphicsMenu : IState
             Debug.LogError("Cant access to ui manager from Graphics menu");
             return;
         }
-        Manager.refrences.GraphicsPanel.gameObject.SetActive(true);
-        Manager.refrences.GraphicsPanel.alpha = 1f;
+        Manager.panelsController.PanelActiver(Manager.refrences.GraphicsPanel, true);
     }
     public void UpdateState()
     {
@@ -26,8 +25,7 @@ public class AdvancedGraphicsMenu : IState
     }
     public void Hide()
     {
-        Manager.refrences.GraphicsPanel.alpha = 0f;
-        Manager.refrences.GraphicsPanel.gameObject.SetActive(false);
+        Manager.panelsController.PanelActiver(Manager.refrences.GraphicsPanel, false);
     }
     public void CheckInput()
     {

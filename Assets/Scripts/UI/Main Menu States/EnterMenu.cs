@@ -13,15 +13,14 @@ public class EnterMenu : IState
             Debug.LogError("Can't access to ui manager from enter menu");
             return;
         }
-        Manager.refrences.EnterMenuPanel.gameObject.SetActive(true);
-        Manager.refrences.EnterMenuPanel.alpha = 1f;
+        Manager.panelsController.PanelActiver(Manager.refrences.EnterMenuPanel, true);
+
     }
     public void UpdateState() {
         CheckInput();
     }
     public void Hide() {
-        Manager.refrences.EnterMenuPanel.alpha = 0f;
-        Manager.refrences.EnterMenuPanel.gameObject.SetActive(false);
+        Manager.panelsController.PanelActiver(Manager.refrences.EnterMenuPanel, false);
     }
     public void CheckInput() {
         if (Input.anyKeyDown)

@@ -1,10 +1,11 @@
 using UnityEngine;
 
-public class DisplayMenu : IState
+public class LanguageMenu : IState
 {
+
     private UIManager Manager;
 
-    public DisplayMenu(UIManager manager)
+    public LanguageMenu(UIManager manager)
     {
         Manager = manager;
     }
@@ -13,11 +14,10 @@ public class DisplayMenu : IState
     {
         if (Manager == null)
         {
-            Debug.LogError("Cant access to ui manager from Display menu");
+            Debug.LogError("Cant access to ui manager from Language menu");
             return;
         }
-        Manager.refrences.DisplayPanel.gameObject.SetActive(true);
-        Manager.refrences.DisplayPanel.alpha = 1f;
+        Manager.panelsController.PanelActiver(Manager.refrences.LanguagePanel, true);
     }
     public void UpdateState()
     {
@@ -26,8 +26,7 @@ public class DisplayMenu : IState
     }
     public void Hide()
     {
-        Manager.refrences.DisplayPanel.alpha = 0f;
-        Manager.refrences.DisplayPanel.gameObject.SetActive(false);
+        Manager.panelsController.PanelActiver(Manager.refrences.LanguagePanel, false);
     }
     public void CheckInput()
     {

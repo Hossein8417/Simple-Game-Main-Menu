@@ -14,8 +14,7 @@ public class QuitMenu : IState
             Debug.LogError("Cant access to ui manager from Quit menu");
             return;
         }
-        Manager.refrences.QuitPanel.gameObject.SetActive(true);
-        Manager.refrences.QuitPanel.alpha = 1f;
+        Manager.panelsController.PanelActiver(Manager.refrences.QuitPanel, true);
     }
     public void UpdateState()
     {
@@ -24,8 +23,7 @@ public class QuitMenu : IState
     }
     public void Hide()
     {
-        Manager.refrences.QuitPanel.alpha = 0f;
-        Manager.refrences.QuitPanel.gameObject.SetActive(false);
+        Manager.panelsController.PanelActiver(Manager.refrences.QuitPanel, false);
     }
 
     public void OnQuitButtonClicked() { 

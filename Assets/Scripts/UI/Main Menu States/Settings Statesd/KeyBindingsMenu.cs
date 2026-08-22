@@ -16,8 +16,7 @@ public class KeyBindingsMenu : IState
             Debug.LogError("Cant access to ui manager from Key Bindings menu");
             return;
         }
-        Manager.refrences.keyBindingsPanel.gameObject.SetActive(true);
-        Manager.refrences.keyBindingsPanel.alpha = 1f;
+        Manager.panelsController.PanelActiver(Manager.refrences.keyBindingsPanel, true);
     }
     public void UpdateState()
     {
@@ -26,8 +25,7 @@ public class KeyBindingsMenu : IState
     }
     public void Hide()
     {
-        Manager.refrences.keyBindingsPanel.alpha = 0f;
-        Manager.refrences.keyBindingsPanel.gameObject.SetActive(false);
+        Manager.panelsController.PanelActiver(Manager.refrences.keyBindingsPanel, false);
     }
     public void CheckInput()
     {

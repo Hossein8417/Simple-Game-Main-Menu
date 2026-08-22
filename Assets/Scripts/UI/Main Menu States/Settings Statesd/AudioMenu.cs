@@ -1,10 +1,10 @@
 using UnityEngine;
 
-public class GameplayMenu : IState
+public class AudioMenu : IState
 {
     private UIManager Manager;
 
-    public GameplayMenu(UIManager manager)
+    public AudioMenu(UIManager manager)
     {
         Manager = manager;
     }
@@ -13,11 +13,10 @@ public class GameplayMenu : IState
     {
         if (Manager == null)
         {
-            Debug.LogError("Cant access to ui manager from Gameplay menu");
+            Debug.LogError("Cant access to ui manager from Audio menu");
             return;
         }
-        Manager.refrences.GameplayPanel.gameObject.SetActive(true);
-        Manager.refrences.GameplayPanel.alpha = 1f;
+        Manager.panelsController.PanelActiver(Manager.refrences.AudioPanel, true);
     }
     public void UpdateState()
     {
@@ -26,8 +25,7 @@ public class GameplayMenu : IState
     }
     public void Hide()
     {
-        Manager.refrences.GameplayPanel.alpha = 0f;
-        Manager.refrences.GameplayPanel.gameObject.SetActive(false);
+        Manager.panelsController.PanelActiver(Manager.refrences.AudioPanel, false);
     }
     public void CheckInput()
     {

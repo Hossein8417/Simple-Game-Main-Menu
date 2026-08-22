@@ -1,10 +1,10 @@
 using UnityEngine;
 
-public class AudioMenu : IState
+public class ChapterSelect : IState
 {
     private UIManager Manager;
 
-    public AudioMenu(UIManager manager)
+    public ChapterSelect(UIManager manager)
     {
         Manager = manager;
     }
@@ -13,11 +13,10 @@ public class AudioMenu : IState
     {
         if (Manager == null)
         {
-            Debug.LogError("Cant access to ui manager from Audio menu");
+            Debug.LogError("Cant access to ui manager from ChapterSelect menu");
             return;
         }
-        Manager.refrences.AudioPanel.gameObject.SetActive(true);
-        Manager.refrences.AudioPanel.alpha = 1f;
+        Manager.panelsController.PanelActiver(Manager.refrences.ChapterSelectPanel, true);
     }
     public void UpdateState()
     {
@@ -26,14 +25,13 @@ public class AudioMenu : IState
     }
     public void Hide()
     {
-        Manager.refrences.AudioPanel.alpha = 0f;
-        Manager.refrences.AudioPanel.gameObject.SetActive(false);
+        Manager.panelsController.PanelActiver(Manager.refrences.ChapterSelectPanel, false);
     }
     public void CheckInput()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Manager.ChangeState(Manager.mainMenu);
+            Manager.ChangeState(Manager.storyMenu);
         }
     }
 }

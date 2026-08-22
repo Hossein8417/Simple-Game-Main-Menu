@@ -17,8 +17,7 @@ public class MainMenu : IState
             Debug.LogError("Cant access to ui manager from main menu");
             return;
         }
-        Manager.refrences.MainMenuPanel.gameObject.SetActive(true);
-        Manager.refrences.MainMenuPanel.alpha = 1f;
+        Manager.panelsController.PanelActiver(Manager.refrences.MainMenuPanel, true);
     }
     public void UpdateState()
     {
@@ -30,8 +29,7 @@ public class MainMenu : IState
     }
     public void Hide()
     {
-        Manager.refrences.MainMenuPanel.alpha = 0f;
-        Manager.refrences.MainMenuPanel.gameObject.SetActive(false);
+        Manager.panelsController.PanelActiver(Manager.refrences.MainMenuPanel, false);
     }
 
     public void CheckInput() {

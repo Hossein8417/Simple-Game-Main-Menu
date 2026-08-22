@@ -1,10 +1,10 @@
 using UnityEngine;
 
-public class StoryMenu : IState
+public class LoadGame : IState
 {
     private UIManager Manager;
-    
-    public StoryMenu(UIManager manager)
+
+    public LoadGame(UIManager manager)
     {
         Manager = manager;
     }
@@ -13,10 +13,10 @@ public class StoryMenu : IState
     {
         if (Manager == null)
         {
-            Debug.LogError("Cant access to ui manager from story menu");
+            Debug.LogError("Cant access to ui manager from LoadGame menu");
             return;
         }
-        Manager.panelsController.PanelActiver(Manager.refrences.StoryPanel, true);
+        Manager.panelsController.PanelActiver(Manager.refrences.LoadGamePanel, true);
     }
     public void UpdateState()
     {
@@ -25,13 +25,13 @@ public class StoryMenu : IState
     }
     public void Hide()
     {
-        Manager.panelsController.PanelActiver(Manager.refrences.StoryPanel, false);
+        Manager.panelsController.PanelActiver(Manager.refrences.LoadGamePanel, false);
     }
     public void CheckInput()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Manager.ChangeState(Manager.mainMenu);
+            Manager.ChangeState(Manager.storyMenu);
         }
     }
 }

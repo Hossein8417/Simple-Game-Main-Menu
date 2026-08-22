@@ -487,6 +487,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 12931380}
+  - component: {fileID: 12931381}
   m_Layer: 0
   m_Name: Load Game menu
   m_TagString: Untagged
@@ -511,6 +512,18 @@ Transform:
   - {fileID: 348901866}
   m_Father: {fileID: 335425776}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!225 &12931381
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 12931379}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &14902919
 GameObject:
   m_ObjectHideFlags: 0
@@ -16726,6 +16739,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 671712763}
+  - component: {fileID: 671712764}
   m_Layer: 0
   m_Name: Chapter Select Menu
   m_TagString: Untagged
@@ -16749,6 +16763,18 @@ Transform:
   - {fileID: 1955614308}
   m_Father: {fileID: 335425776}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!225 &671712764
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 671712762}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &676752339
 GameObject:
   m_ObjectHideFlags: 0
@@ -27000,7 +27026,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::VersionShower
   versionText: {fileID: 1754264326}
-  versionString: v1.60
+  versionString: v1.62
 --- !u!1 &1164842328
 GameObject:
   m_ObjectHideFlags: 0
@@ -27149,9 +27175,7 @@ GameObject:
   - component: {fileID: 1168714866}
   - component: {fileID: 1168714886}
   - component: {fileID: 1168714885}
-  - component: {fileID: 1168714880}
-  - component: {fileID: 1168714879}
-  - component: {fileID: 1168714878}
+  - component: {fileID: 1168714887}
   m_Layer: 0
   m_Name: UI_Manager
   m_TagString: Untagged
@@ -27174,42 +27198,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1640790831}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1168714878
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1168714865}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3785eddf4faf91b4aa0eea7eac7a101f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ChapterSelectMenu
---- !u!114 &1168714879
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1168714865}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a01673fb135e73b45b996dbdc9f1b191, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::LoadGameMenu
---- !u!114 &1168714880
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1168714865}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f182180d68c73c45912e39a5cb10be0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::NewGameMenu
 --- !u!114 &1168714885
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27225,6 +27213,9 @@ MonoBehaviour:
   MainMenuPanel: {fileID: 888500075}
   EnterMenuPanel: {fileID: 1207898023}
   StoryPanel: {fileID: 869029818}
+  NewGamePanel: {fileID: 1629814111}
+  LoadGamePanel: {fileID: 12931381}
+  ChapterSelectPanel: {fileID: 671712764}
   ExtrasPanel: {fileID: 223866296}
   OptionsPanel: {fileID: 276539139}
   QuitPanel: {fileID: 860969033}
@@ -27243,6 +27234,8 @@ MonoBehaviour:
   NewGameButton: {fileID: 1779814054}
   LoadGameButton: {fileID: 1854672322}
   ChapterSelectButton: {fileID: 1279163290}
+  YesNewGameButton: {fileID: 1972921592}
+  NoNewGameButton: {fileID: 780792678}
   BonusButton: {fileID: 290205635}
   CreditsButton: {fileID: 2063796945}
   GameplayButton: {fileID: 14902921}
@@ -27310,6 +27303,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIManager
   refrences: {fileID: 1168714885}
+  panelsController: {fileID: 1168714887}
+--- !u!114 &1168714887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1168714865}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71ae0d4cf24953249a96cc01ee11ad48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PanelsController
 --- !u!1 &1174428394
 GameObject:
   m_ObjectHideFlags: 0
@@ -39285,6 +39291,7 @@ GameObject:
   - component: {fileID: 1629814108}
   - component: {fileID: 1629814110}
   - component: {fileID: 1629814109}
+  - component: {fileID: 1629814111}
   m_Layer: 5
   m_Name: New Game Warning box
   m_TagString: Untagged
@@ -39353,6 +39360,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1629814107}
   m_CullTransparentMesh: 1
+--- !u!225 &1629814111
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1629814107}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1634496343
 GameObject:
   m_ObjectHideFlags: 0

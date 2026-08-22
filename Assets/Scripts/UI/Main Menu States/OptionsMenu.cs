@@ -15,8 +15,7 @@ public class OptionsMenu : IState
             Debug.LogError("Cant access to ui manager from Options menu");
             return;
         }
-        Manager.refrences.OptionsPanel.gameObject.SetActive(true);
-        Manager.refrences.OptionsPanel.alpha = 1f;
+        Manager.panelsController.PanelActiver(Manager.refrences.OptionsPanel, true);
     }
     public void UpdateState()
     {
@@ -25,8 +24,7 @@ public class OptionsMenu : IState
     }
     public void Hide()
     {
-        Manager.refrences.OptionsPanel.alpha = 0f;
-        Manager.refrences.OptionsPanel.gameObject.SetActive(false);
+        Manager.panelsController.PanelActiver(Manager.refrences.OptionsPanel, false);
     }
     public void CheckInput()
     {

@@ -2,16 +2,21 @@ using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
-    //refrences
+    #region Refrences
     public UIRefrences refrences;
+    #endregion
 
-    //instances
+    #region Instances
     IState currentState;
+    #endregion
 
-    //states refrences
+    #region States
     public EnterMenu enterMenu;
     public MainMenu mainMenu;
     public StoryMenu storyMenu;
+    public NewGame newGame;
+    public LoadGame loadGame;
+    public ChapterSelect chapterSelect;
     public ExtrasMenu extrasMenu;
     public OptionsMenu optionsMenu;
     public QuitMenu quitMenu;
@@ -22,17 +27,22 @@ public class UIManager : MonoBehaviour
     public AdvancedGraphicsMenu advancedGraphicsMenu;
     public AudioMenu audioMenu;
     public LanguageMenu languageMenu;
+    #endregion
+
+    #region Controllers
+    public PanelsController panelsController; 
+    #endregion
 
 
     private void Awake()
     {
         IntializeStates();
+        InitialControllers();
     }
 
     private void Start()
     {
-        currentState = enterMenu;
-        currentState.Show();
+        InitialDefaultState();
     }
 
     private void Update()
@@ -47,11 +57,16 @@ public class UIManager : MonoBehaviour
 
         currentState.Show();
     }
-
+    public void InitialControllers() {
+        panelsController = GetComponent<PanelsController>();
+    }
     public void IntializeStates() {
         enterMenu = new EnterMenu(this);
         mainMenu = new MainMenu(this);
         storyMenu = new StoryMenu(this);
+        newGame = new NewGame(this);
+        loadGame = new LoadGame(this);
+        chapterSelect = new ChapterSelect(this);
         extrasMenu = new ExtrasMenu(this);
         optionsMenu = new OptionsMenu(this);
         quitMenu = new QuitMenu(this);
@@ -62,5 +77,9 @@ public class UIManager : MonoBehaviour
         advancedGraphicsMenu = new AdvancedGraphicsMenu(this);
         audioMenu = new AudioMenu(this);
         languageMenu = new LanguageMenu(this);
+    }
+    public void InitialDefaultState() {
+        currentState = enterMenu;
+        currentState.Show();
     }
 }
