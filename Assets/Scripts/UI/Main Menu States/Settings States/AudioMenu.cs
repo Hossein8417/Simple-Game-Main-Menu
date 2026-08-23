@@ -1,10 +1,10 @@
 using UnityEngine;
 
-public class AdvancedGraphicsMenu : IState
+public class AudioMenu : IState
 {
     private UIManager Manager;
 
-    public AdvancedGraphicsMenu(UIManager manager)
+    public AudioMenu(UIManager manager)
     {
         Manager = manager;
     }
@@ -13,10 +13,10 @@ public class AdvancedGraphicsMenu : IState
     {
         if (Manager == null)
         {
-            Debug.LogError("Cant access to ui manager from Graphics menu");
+            Debug.LogError("Cant access to ui manager from Audio menu");
             return;
         }
-        Manager.panelsController.PanelActiver(Manager.refrences.GraphicsPanel, true);
+        Manager.panelsController.PanelActiver(Manager.refrences.AudioPanel, true);
     }
     public void UpdateState()
     {
@@ -25,13 +25,13 @@ public class AdvancedGraphicsMenu : IState
     }
     public void Hide()
     {
-        Manager.panelsController.PanelActiver(Manager.refrences.GraphicsPanel, false);
+        Manager.panelsController.PanelActiver(Manager.refrences.AudioPanel, false);
     }
     public void CheckInput()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Manager.ChangeState(Manager.mainMenu);
+            Manager.registry.Get(States.MainMenu);
         }
     }
 }

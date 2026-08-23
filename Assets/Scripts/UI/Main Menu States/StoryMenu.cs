@@ -31,7 +31,7 @@ public class StoryMenu : IState
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Manager.ChangeState(Manager.mainMenu);
+            Manager.registry.Get(States.MainMenu);
         }
     }
 }

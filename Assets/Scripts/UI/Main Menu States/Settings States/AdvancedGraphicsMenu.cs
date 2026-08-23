@@ -1,10 +1,10 @@
 using UnityEngine;
 
-public class GameplayMenu : IState
+public class AdvancedGraphicsMenu : IState
 {
     private UIManager Manager;
 
-    public GameplayMenu(UIManager manager)
+    public AdvancedGraphicsMenu(UIManager manager)
     {
         Manager = manager;
     }
@@ -13,10 +13,10 @@ public class GameplayMenu : IState
     {
         if (Manager == null)
         {
-            Debug.LogError("Cant access to ui manager from Gameplay menu");
+            Debug.LogError("Cant access to ui manager from Graphics menu");
             return;
         }
-        Manager.panelsController.PanelActiver(Manager.refrences.GameplayPanel, true);
+        Manager.panelsController.PanelActiver(Manager.refrences.GraphicsPanel, true);
     }
     public void UpdateState()
     {
@@ -25,13 +25,13 @@ public class GameplayMenu : IState
     }
     public void Hide()
     {
-        Manager.panelsController.PanelActiver(Manager.refrences.GameplayPanel, false);
+        Manager.panelsController.PanelActiver(Manager.refrences.GraphicsPanel, false);
     }
     public void CheckInput()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Manager.ChangeState(Manager.mainMenu);
+            Manager.registry.Get(States.MainMenu);
         }
     }
 }

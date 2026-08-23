@@ -31,7 +31,7 @@ public class ChapterSelect : IState
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Manager.ChangeState(Manager.storyMenu);
+            Manager.registry.Get(States.StoryMenu);
         }
     }
 }

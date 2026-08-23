@@ -4,9 +4,10 @@ public class UIManager : MonoBehaviour
 {
     #region Refrences
     public UIRefrences refrences;
+    public Registry registry;
     #endregion
 
-    #region Instances
+    #region
     IState currentState;
     #endregion
 
@@ -30,14 +31,15 @@ public class UIManager : MonoBehaviour
     #endregion
 
     #region Controllers
-    public PanelsController panelsController; 
+    public PanelsController panelsController;
     #endregion
 
 
     private void Awake()
-    {
+    {   
         IntializeStates();
         InitialControllers();
+        
     }
 
     private void Start()
@@ -50,17 +52,18 @@ public class UIManager : MonoBehaviour
         currentState.UpdateState();
     }
 
-    public void ChangeState(IState newState) {
+    public void ChangeState(States newState)
+    {
         currentState.Hide();
-        
-        currentState = newState;
+       
+        currentState = registry.Get(newState);
 
         currentState.Show();
     }
-    public void InitialControllers() {
+    private void InitialControllers() {
         panelsController = GetComponent<PanelsController>();
     }
-    public void IntializeStates() {
+    private void IntializeStates() {
         enterMenu = new EnterMenu(this);
         mainMenu = new MainMenu(this);
         storyMenu = new StoryMenu(this);
@@ -78,8 +81,10 @@ public class UIManager : MonoBehaviour
         audioMenu = new AudioMenu(this);
         languageMenu = new LanguageMenu(this);
     }
-    public void InitialDefaultState() {
-        currentState = enterMenu;
+    private void InitialDefaultState() {
+        Debug.Log("Null from InitialDefaultState1");
+        currentState = registry.Get(States.EnterMenu);
+        Debug.Log("Null from InitialDefaultState2");
         currentState.Show();
     }
 }

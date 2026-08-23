@@ -30,13 +30,13 @@ public class QuitMenu : IState
         Application.Quit();
     }
     public void OnQuitButtonNotClicked() {
-        Manager.ChangeState(Manager.mainMenu);
+        Manager.registry.Get(States.MainMenu);
     }
     public void CheckInput()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Manager.ChangeState(Manager.mainMenu);
+            Manager.registry.Get(States.MainMenu);
         }
     }
 }

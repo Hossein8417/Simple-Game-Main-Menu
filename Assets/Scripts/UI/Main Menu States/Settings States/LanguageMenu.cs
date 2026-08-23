@@ -1,10 +1,11 @@
 using UnityEngine;
 
-public class KeyBindingsMenu : IState
+public class LanguageMenu : IState
 {
+
     private UIManager Manager;
 
-    public KeyBindingsMenu(UIManager manager)
+    public LanguageMenu(UIManager manager)
     {
         Manager = manager;
     }
@@ -13,10 +14,10 @@ public class KeyBindingsMenu : IState
     {
         if (Manager == null)
         {
-            Debug.LogError("Cant access to ui manager from Key Bindings menu");
+            Debug.LogError("Cant access to ui manager from Language menu");
             return;
         }
-        Manager.panelsController.PanelActiver(Manager.refrences.keyBindingsPanel, true);
+        Manager.panelsController.PanelActiver(Manager.refrences.LanguagePanel, true);
     }
     public void UpdateState()
     {
@@ -25,13 +26,13 @@ public class KeyBindingsMenu : IState
     }
     public void Hide()
     {
-        Manager.panelsController.PanelActiver(Manager.refrences.keyBindingsPanel, false);
+        Manager.panelsController.PanelActiver(Manager.refrences.LanguagePanel, false);
     }
     public void CheckInput()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Manager.ChangeState(Manager.mainMenu);
+            Manager.registry.Get(States.MainMenu);
         }
     }
 }

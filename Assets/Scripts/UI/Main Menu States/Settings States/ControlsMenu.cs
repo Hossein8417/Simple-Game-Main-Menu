@@ -1,10 +1,10 @@
 using UnityEngine;
 
-public class DisplayMenu : IState
+public class ControlsMenu : IState
 {
     private UIManager Manager;
 
-    public DisplayMenu(UIManager manager)
+    public ControlsMenu(UIManager manager)
     {
         Manager = manager;
     }
@@ -13,10 +13,10 @@ public class DisplayMenu : IState
     {
         if (Manager == null)
         {
-            Debug.LogError("Cant access to ui manager from Display menu");
+            Debug.LogError("Cant access to ui manager from Controls menu");
             return;
         }
-        Manager.panelsController.PanelActiver(Manager.refrences.DisplayPanel, true);
+        Manager.panelsController.PanelActiver(Manager.refrences.ControlsPanel, true);
     }
     public void UpdateState()
     {
@@ -25,13 +25,13 @@ public class DisplayMenu : IState
     }
     public void Hide()
     {
-        Manager.panelsController.PanelActiver(Manager.refrences.DisplayPanel, false);
+        Manager.panelsController.PanelActiver(Manager.refrences.ControlsPanel, false);
     }
     public void CheckInput()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Manager.ChangeState(Manager.mainMenu);
+            Manager.registry.Get(States.MainMenu);
         }
     }
 }
