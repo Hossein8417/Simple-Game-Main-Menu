@@ -34,21 +34,21 @@ public class MainMenu : IState
 
     public void CheckInput() {
         if (Input.GetKeyDown(KeyCode.Escape)) {
-            Manager.registry.Get(States.QuitMenu);
+            Manager.ChangeState(States.QuitMenu);
         }
     }
     public void OnStoryButtonPressed() {
-        Manager.registry.Get(States.StoryMenu);
+        Manager.ChangeState(States.StoryMenu);
     }
     public void OnExtrasButtonPressed() {
-        Manager.registry.Get(States.Extrasmenu);
+        Manager.ChangeState(States.Extrasmenu);
     }
     public void OnOptionsButtonPressed()
     {
-        Manager.registry.Get(States.OptionsMenu);
+        Manager.ChangeState(States.OptionsMenu);
     }
     public void OnQuitButtonPressed()
     {
-        Manager.registry.Get(States.QuitMenu);
+        Manager.ChangeState(States.QuitMenu);
     }
 }

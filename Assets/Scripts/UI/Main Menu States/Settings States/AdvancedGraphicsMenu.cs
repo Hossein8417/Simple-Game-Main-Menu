@@ -31,7 +31,7 @@ public class AdvancedGraphicsMenu : IState
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Manager.registry.Get(States.MainMenu);
+            Manager.ChangeState(States.MainMenu);
         }
     }
 }

@@ -28,15 +28,16 @@ public class QuitMenu : IState
 
     public void OnQuitButtonClicked() { 
         Application.Quit();
+        Debug.Log("Game Closed!");
     }
     public void OnQuitButtonNotClicked() {
-        Manager.registry.Get(States.MainMenu);
+        Manager.ChangeState(States.MainMenu);
     }
     public void CheckInput()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Manager.registry.Get(States.MainMenu);
+            Manager.ChangeState(States.MainMenu);
         }
     }
 }

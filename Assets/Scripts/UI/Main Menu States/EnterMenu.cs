@@ -25,7 +25,7 @@ public class EnterMenu : IState
     public void CheckInput() {
         if (Input.anyKeyDown)
         {
-            Manager.registry.Get(States.MainMenu);
+            Manager.ChangeState(States.MainMenu);
         }
     }
 }

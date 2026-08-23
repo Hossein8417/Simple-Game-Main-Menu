@@ -1,13 +1,12 @@
+using System.Collections.Generic;
 using UnityEngine;
-
 public class UIManager : MonoBehaviour
 {
     #region Refrences
     public UIRefrences refrences;
-    public Registry registry;
     #endregion
 
-    #region
+    #region Instances
     IState currentState;
     #endregion
 
@@ -34,7 +33,7 @@ public class UIManager : MonoBehaviour
     public PanelsController panelsController;
     #endregion
 
-
+    public Dictionary<States, IState> states = new Dictionary<States, IState>();
     private void Awake()
     {   
         IntializeStates();
@@ -56,7 +55,7 @@ public class UIManager : MonoBehaviour
     {
         currentState.Hide();
        
-        currentState = registry.Get(newState);
+        currentState = Get(newState);
 
         currentState.Show();
     }
@@ -80,11 +79,30 @@ public class UIManager : MonoBehaviour
         advancedGraphicsMenu = new AdvancedGraphicsMenu(this);
         audioMenu = new AudioMenu(this);
         languageMenu = new LanguageMenu(this);
+
+        states.Add(States.EnterMenu, enterMenu);
+        states.Add(States.MainMenu, mainMenu);
+        states.Add(States.StoryMenu, storyMenu);
+        states.Add(States.OptionsMenu, optionsMenu);
+        states.Add(States.Extrasmenu, extrasMenu);
+        states.Add(States.QuitMenu, quitMenu);
+        states.Add(States.NewGame, newGame);
+        states.Add(States.LoadGame, loadGame);
+        states.Add(States.ChapterSelect, chapterSelect);
+        states.Add(States.Gameplay, gameplayMenu);
+        states.Add(States.Controls, controlsMenu);
+        states.Add(States.keyBindings, keyBindingsMenu);
+        states.Add(States.Display, displayMenu);
+        states.Add(States.Graphics, advancedGraphicsMenu);
+        states.Add(States.Audio, audioMenu);
+        states.Add(States.Language, languageMenu);
     }
     private void InitialDefaultState() {
-        Debug.Log("Null from InitialDefaultState1");
-        currentState = registry.Get(States.EnterMenu);
-        Debug.Log("Null from InitialDefaultState2");
+        currentState = Get(States.EnterMenu);
         currentState.Show();
+    }
+    public IState Get(States state)
+    {
+        return states[state];
     }
 }

@@ -31,7 +31,7 @@ public class NewGame : IState
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Manager.registry.Get(States.StoryMenu);
+            Manager.ChangeState(States.StoryMenu);
         }
     }
 }
