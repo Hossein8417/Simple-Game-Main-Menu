@@ -21,6 +21,7 @@ public class UIRefrences : MonoBehaviour
     public CanvasGroup GraphicsPanel;
     public CanvasGroup AudioPanel;
     public CanvasGroup LanguagePanel;
+    public CanvasGroup CreditsPanel;
 
     [Header("{MainMenu}Items")]
     public Button StoryButton;
@@ -45,7 +46,6 @@ public class UIRefrences : MonoBehaviour
     [Header("{ChapterSelect}Items")]
 
     [Header("{ExtrasMenu}Items")]
-    public Button BonusButton;
     public Button CreditsButton;
 
     [Header("{OptionsMenu}Items")]
@@ -62,7 +62,7 @@ public class UIRefrences : MonoBehaviour
     public Button NoButton;
 
     [Header("{GameplayMenu}Items")]
-    public TMP_Dropdown ChallaneDropdown;
+    public TMP_Dropdown ChallangeDropdown;
     public TMP_Dropdown GameplaySubtitlesDropdown;
     public TMP_Dropdown GameHintDropdown;
     public TMP_Dropdown TuturialsDropdown;

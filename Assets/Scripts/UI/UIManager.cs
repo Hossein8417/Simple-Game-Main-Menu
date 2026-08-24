@@ -27,6 +27,7 @@ public class UIManager : MonoBehaviour
     public AdvancedGraphicsMenu advancedGraphicsMenu;
     public AudioMenu audioMenu;
     public LanguageMenu languageMenu;
+    public CreditsMenu creditsMenu;
     #endregion
 
     #region Controllers
@@ -79,6 +80,7 @@ public class UIManager : MonoBehaviour
         advancedGraphicsMenu = new AdvancedGraphicsMenu(this);
         audioMenu = new AudioMenu(this);
         languageMenu = new LanguageMenu(this);
+        creditsMenu = new CreditsMenu(this);
 
         states.Add(States.EnterMenu, enterMenu);
         states.Add(States.MainMenu, mainMenu);
@@ -96,6 +98,7 @@ public class UIManager : MonoBehaviour
         states.Add(States.Graphics, advancedGraphicsMenu);
         states.Add(States.Audio, audioMenu);
         states.Add(States.Language, languageMenu);
+        states.Add (States.Credits, creditsMenu);
     }
     private void InitialDefaultState() {
         currentState = Get(States.EnterMenu);

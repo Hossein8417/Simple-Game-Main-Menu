@@ -7,6 +7,7 @@ public enum States {
     QuitMenu,
     NewGame,
     LoadGame,
+    Credits,
     ChapterSelect,
     Gameplay,
     Controls,

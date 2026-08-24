@@ -1,10 +1,9 @@
 using UnityEngine;
 
-public class ControlsMenu : IState
+public class CreditsMenu : IState
 {
     private UIManager Manager;
-
-    public ControlsMenu(UIManager manager)
+    public CreditsMenu(UIManager manager)
     {
         Manager = manager;
     }
@@ -13,10 +12,10 @@ public class ControlsMenu : IState
     {
         if (Manager == null)
         {
-            Debug.LogError("Cant access to ui manager from Controls menu");
+            Debug.LogError("Cant access to ui manager from Credits menu");
             return;
         }
-        Manager.panelsController.PanelActiver(Manager.refrences.ControlsPanel, true);
+        Manager.panelsController.PanelActiver(Manager.refrences.CreditsPanel, true);
     }
     public void UpdateState()
     {
@@ -25,13 +24,13 @@ public class ControlsMenu : IState
     }
     public void Hide()
     {
-        Manager.panelsController.PanelActiver(Manager.refrences.ControlsPanel, false);
+        Manager.panelsController.PanelActiver(Manager.refrences.CreditsPanel, false);
     }
     public void CheckInput()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Manager.ChangeState(States.OptionsMenu);
+            Manager.ChangeState(States.Extrasmenu);
         }
     }
 }

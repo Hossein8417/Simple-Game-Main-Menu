@@ -20,8 +20,10 @@ public class StoryMenu : IState
     }
     public void UpdateState()
     {
-        //other logics
         CheckInput();
+        Manager.refrences.NewGameButton.onClick.AddListener(OnNewGameButtonPressed);
+        Manager.refrences.LoadGameButton.onClick.AddListener(OnLoadGameButtonPressed);
+        Manager.refrences.ChapterSelectButton.onClick.AddListener(OnChapterSelectButtonPressed);
     }
     public void Hide()
     {
@@ -33,5 +35,17 @@ public class StoryMenu : IState
         {
             Manager.ChangeState(States.MainMenu);
         }
+    }
+    public void OnNewGameButtonPressed()
+    {
+        Manager.ChangeState(States.NewGame);
+    }
+    public void OnLoadGameButtonPressed()
+    {
+        Manager.ChangeState(States.LoadGame);
+    }
+    public void OnChapterSelectButtonPressed()
+    {
+        Manager.ChangeState(States.ChapterSelect);
     }
 }

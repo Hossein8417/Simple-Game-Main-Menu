@@ -21,6 +21,7 @@ public class ExtrasMenu : IState
     {
         //other logics
         CheckInput();
+        Manager.refrences.CreditsButton.onClick.AddListener(OnCreditsButtonPressed);
     }
     public void Hide()
     {
@@ -32,5 +33,9 @@ public class ExtrasMenu : IState
         {
             Manager.ChangeState(States.MainMenu);
         }
+    }
+    public void OnCreditsButtonPressed()
+    {
+        Manager.ChangeState(States.Credits);
     }
 }
