@@ -16,7 +16,6 @@ public class UIManager : MonoBehaviour
     public StoryMenu storyMenu;
     public NewGame newGame;
     public LoadGame loadGame;
-    public ChapterSelect chapterSelect;
     public ExtrasMenu extrasMenu;
     public OptionsMenu optionsMenu;
     public QuitMenu quitMenu;
@@ -69,7 +68,6 @@ public class UIManager : MonoBehaviour
         storyMenu = new StoryMenu(this);
         newGame = new NewGame(this);
         loadGame = new LoadGame(this);
-        chapterSelect = new ChapterSelect(this);
         extrasMenu = new ExtrasMenu(this);
         optionsMenu = new OptionsMenu(this);
         quitMenu = new QuitMenu(this);
@@ -90,7 +88,6 @@ public class UIManager : MonoBehaviour
         states.Add(States.QuitMenu, quitMenu);
         states.Add(States.NewGame, newGame);
         states.Add(States.LoadGame, loadGame);
-        states.Add(States.ChapterSelect, chapterSelect);
         states.Add(States.Gameplay, gameplayMenu);
         states.Add(States.Controls, controlsMenu);
         states.Add(States.keyBindings, keyBindingsMenu);

@@ -8,7 +8,6 @@ public enum States {
     NewGame,
     LoadGame,
     Credits,
-    ChapterSelect,
     Gameplay,
     Controls,
     keyBindings,

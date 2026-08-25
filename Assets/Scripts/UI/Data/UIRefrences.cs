@@ -10,7 +10,6 @@ public class UIRefrences : MonoBehaviour
     public CanvasGroup StoryPanel;
     public CanvasGroup NewGamePanel;
     public CanvasGroup LoadGamePanel;
-    public CanvasGroup ChapterSelectPanel;
     public CanvasGroup ExtrasPanel;
     public CanvasGroup OptionsPanel;
     public CanvasGroup QuitPanel;
@@ -35,15 +34,16 @@ public class UIRefrences : MonoBehaviour
     [Header("{StoryMenu}Items")]
     public Button NewGameButton;
     public Button LoadGameButton;
-    public Button ChapterSelectButton;
 
     [Header("{NewGame}Items")]
-    public Button YesNewGameButton;
-    public Button NoNewGameButton;
+    public Button Slot1NewGameButton;
+    public Button Slot2NewGameButton;
+    public Button Slot3NewGameButton;
 
     [Header("{LoadGame}Items")]
-
-    [Header("{ChapterSelect}Items")]
+    public Button Slot1LoadGameButton;
+    public Button Slot2LoadGameButton;
+    public Button Slot3LoadGameButton;
 
     [Header("{ExtrasMenu}Items")]
     public Button CreditsButton;
