@@ -1,14 +1,25 @@
 using System.Collections.Generic;
-using UnityEngine;
 using TMPro;
-
+using UnityEngine;
+using UnityEngine.Rendering;
 public class DropdownsControllers : MonoBehaviour
 {
     [SerializeField]
     private UIManager manager;
 
+    private Resolution[] displayResolutions;
+    private List<string> displayResolutionOptions = new List<string>();
+
+    private Resolution[] renderedResolutions;
+    private List<string> renderedResolutionOptions = new List<string>();
+
     private void Awake()
     {
+        GetDisplayResolutions();
+        GetRenderedResolutions();
+        GetDisplayAspects();
+        GetUserGPUInfo();
+        GetUserMonitorsList();
         InitializeDropdowns();
     }
     private void InitializeDropdowns() {
@@ -20,25 +31,25 @@ public class DropdownsControllers : MonoBehaviour
             new TMP_Dropdown.OptionData("Hard")
         };
 
-        var SubtitlesOptions = new List<TMP_Dropdown.OptionData>
+        var subtitlesOptions = new List<TMP_Dropdown.OptionData>
         {
             new TMP_Dropdown.OptionData("On"),
             new TMP_Dropdown.OptionData("Off")
         };
 
-        var GameHintOptions = new List<TMP_Dropdown.OptionData>
+        var gameHintOptions = new List<TMP_Dropdown.OptionData>
         {
             new TMP_Dropdown.OptionData("On"),
             new TMP_Dropdown.OptionData("Off")
         };
 
-        var TutorialsOptions = new List<TMP_Dropdown.OptionData>
+        var tutorialsOptions = new List<TMP_Dropdown.OptionData>
         {
             new TMP_Dropdown.OptionData("On"),
             new TMP_Dropdown.OptionData("Off")
         };
 
-        var PhotoModeOptions = new List<TMP_Dropdown.OptionData>
+        var photoModeOptions = new List<TMP_Dropdown.OptionData>
         {
             new TMP_Dropdown.OptionData("On"),
             new TMP_Dropdown.OptionData("Off")
@@ -49,20 +60,27 @@ public class DropdownsControllers : MonoBehaviour
         manager.refrences.GameHintDropdown.ClearOptions();
         manager.refrences.TuturialsDropdown.ClearOptions();
         manager.refrences.PhotoModeDropdown.ClearOptions();
+        manager.refrences.DisplayResolutionDropdown.ClearOptions();
+        manager.refrences.RenderedResolutionDropdown.ClearOptions();
 
         manager.refrences.ChallangeDropdown.AddOptions(challangeLevelOptions);
-        manager.refrences.GameplaySubtitlesDropdown.AddOptions(SubtitlesOptions);
-        manager.refrences.GameHintDropdown.AddOptions(GameHintOptions);
-        manager.refrences.TuturialsDropdown.AddOptions(TutorialsOptions);
-        manager.refrences.PhotoModeDropdown.AddOptions(PhotoModeOptions);
+        manager.refrences.GameplaySubtitlesDropdown.AddOptions(subtitlesOptions);
+        manager.refrences.GameHintDropdown.AddOptions(gameHintOptions);
+        manager.refrences.TuturialsDropdown.AddOptions(tutorialsOptions);
+        manager.refrences.PhotoModeDropdown.AddOptions(photoModeOptions);
+        manager.refrences.DisplayResolutionDropdown.AddOptions(displayResolutionOptions);
+        manager.refrences.RenderedResolutionDropdown.AddOptions(displayResolutionOptions);
 
         manager.refrences.ChallangeDropdown.onValueChanged.AddListener(OnChallangeChanged);
-        manager.refrences.ChallangeDropdown.onValueChanged.AddListener(OnSubtitlesChanged);
-        manager.refrences.ChallangeDropdown.onValueChanged.AddListener(OnGameHintChanged);
-        manager.refrences.ChallangeDropdown.onValueChanged.AddListener(OnTutorialsChanged);
-        manager.refrences.ChallangeDropdown.onValueChanged.AddListener(OnPhotoModeChanged);
+        manager.refrences.GameplaySubtitlesDropdown.onValueChanged.AddListener(OnSubtitlesChanged);
+        manager.refrences.GameHintDropdown.onValueChanged.AddListener(OnGameHintChanged);
+        manager.refrences.TuturialsDropdown.onValueChanged.AddListener(OnTutorialsChanged);
+        manager.refrences.PhotoModeDropdown.onValueChanged.AddListener(OnPhotoModeChanged);
+        manager.refrences.DisplayResolutionDropdown.onValueChanged.AddListener(OnDisplayResolutionChanged);
+        manager.refrences.RenderedResolutionDropdown.onValueChanged.AddListener(OnRenderedResolutionChanged);
     }
 
+    #region OnValuesChanges Methods
     public void OnChallangeChanged(int index) {
         Debug.Log($"Challange level changed to: {manager.refrences.ChallangeDropdown.options[index].text}");
     }
@@ -81,5 +99,55 @@ public class DropdownsControllers : MonoBehaviour
     public void OnPhotoModeChanged(int index)
     {
         Debug.Log($"photo mode mode changed to: {manager.refrences.ChallangeDropdown.options[index].text}");
+    }
+    public void OnDisplayResolutionChanged(int index) {
+        Debug.Log($"reslotion changed to {index}");
+    }
+    public void OnRenderedResolutionChanged(int index)
+    {
+        Debug.Log($"rendered reslotion changed to {index}");
+    }
+    #endregion
+
+    private void GetDisplayResolutions() {
+        
+        displayResolutions = Screen.resolutions;
+
+        for (int i = 0; i < displayResolutions.Length; i++)
+        {
+            string option = $"{displayResolutions[i].width} X {displayResolutions[i].height} @ {displayResolutions[i].refreshRateRatio}Hz";
+
+            displayResolutionOptions.Add(option);
+        }        
+    }
+
+    private void GetRenderedResolutions()
+    {
+
+        renderedResolutions = Screen.resolutions;
+
+        for (int i = 0; i < renderedResolutions.Length; i++)
+        {
+            string option = $"{renderedResolutions[i].width} X {renderedResolutions[i].height} @ {renderedResolutions[i].refreshRateRatio}Hz";
+
+            renderedResolutionOptions.Add(option);
+        }
+    }
+    private void GetDisplayAspects() {
+        //this logic must improve
+        Debug.Log($"{Screen.width/Screen.height}");
+
+    }
+
+    private void GetUserGPUInfo() {
+        string gpuName = SystemInfo.graphicsDeviceName;
+        manager.refrences.gpuNameText.text = gpuName;
+    }
+    private void GetUserMonitorsList() {
+        string displayMonitor = Display.main.ToString();
+
+        manager.refrences.DisplayMonitorDropdown.name = displayMonitor;
+
+        //bug
     }
 }

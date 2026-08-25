@@ -79,13 +79,12 @@ public class UIRefrences : MonoBehaviour
     [Header("{KeyBindings}Items")]
 
     [Header("{DisplayMenu}Items")]
-    public TMP_Dropdown DisplayModeDropdown;
-    public TMP_Dropdown MonitorDropdown;
     public TMP_Dropdown DisplayResolutionDropdown;
     public TMP_Dropdown RenderedResolutionDropdown;
+    public TMP_Text gpuNameText;
+    public TMP_Dropdown DisplayMonitorDropdown;
     public TMP_Dropdown AspectRatioDropdown;
-    public TMP_Dropdown MethodDropdown;
-    public TMP_Dropdown VsyncDropdown;
+    public Toggle VsyncToggle;
 
     [Header("{AdvancedGraphicsMenu}Items")]
     public TMP_Text EstimatedGraphicsUsageValueText;

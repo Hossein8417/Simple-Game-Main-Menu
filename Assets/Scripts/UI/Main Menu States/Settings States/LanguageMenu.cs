@@ -32,7 +32,7 @@ public class LanguageMenu : IState
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Manager.ChangeState(States.MainMenu);
+            Manager.ChangeState(States.OptionsMenu);
         }
     }
 }
