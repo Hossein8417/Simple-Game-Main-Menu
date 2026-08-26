@@ -17,7 +17,6 @@ public class EnterMenu : IState
 
     }
     public void UpdateState() {
-        //press any key animation
         CheckInput();
     }
     public void Hide() {

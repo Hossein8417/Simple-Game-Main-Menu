@@ -18,6 +18,7 @@ public class QuitMenu : IState
     }
     public void UpdateState()
     {
+        CheckInput();
         Manager.refrences.YesButton.onClick.AddListener(OnQuitButtonClicked);
         Manager.refrences.NoButton.onClick.AddListener(OnQuitButtonNotClicked);
     }
