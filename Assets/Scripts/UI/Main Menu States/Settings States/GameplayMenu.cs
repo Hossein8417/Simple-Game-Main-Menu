@@ -20,7 +20,6 @@ public class GameplayMenu : IState
     }
     public void UpdateState()
     {
-        //other logics
         CheckInput();
     }
     public void Hide()
@@ -33,5 +32,5 @@ public class GameplayMenu : IState
         {
             Manager.ChangeState(States.OptionsMenu);
         }
-    }
+    } 
 }

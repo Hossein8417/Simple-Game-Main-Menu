@@ -2,9 +2,12 @@ using UnityEngine;
 
 public class UISoundManager : MonoBehaviour
 {
+
+    [SerializeField]
+    private AudioSource clickSound;
+
+
     public static UISoundManager Instance;
-
-
     private void Awake()
     {
         if (Instance == null) { 
@@ -14,9 +17,6 @@ public class UISoundManager : MonoBehaviour
             DontDestroyOnLoad(gameObject);
         }
     }
-
-    [SerializeField]
-    private AudioSource clickSound;
     public void UIClick() {
         clickSound.Play();
     }

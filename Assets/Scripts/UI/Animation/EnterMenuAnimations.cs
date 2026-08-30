@@ -1,10 +1,9 @@
 using DG.Tweening;
-using TMPro;
 using UnityEngine;
-
 public class EnterMenuAnimations : MonoBehaviour
 {
-    [SerializeField] private UIManager manager;
+    [SerializeField]
+    private UIManager manager;
 
     [SerializeField] private float blinkDuration = 2f;
 
@@ -15,12 +14,7 @@ public class EnterMenuAnimations : MonoBehaviour
 
     void Awake()
     {
-        if (manager == null) manager = GetComponent<UIManager>();
-    }
-
-    void Start()
-    {
-        StartBlinking();
+        if (manager != null) StartBlinking();
     }
 
     public void StartBlinking()

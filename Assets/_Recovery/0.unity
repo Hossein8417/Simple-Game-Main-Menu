@@ -4946,6 +4946,17 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &209473939 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7374422576788530608, guid: 38a742b0b04a9fa408d4119bfd96138b, type: 3}
+  m_PrefabInstance: {fileID: 1858816523}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!1 &210699483
 GameObject:
   m_ObjectHideFlags: 0
@@ -19777,17 +19788,6 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
---- !u!114 &871413030 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 33913456286481550, guid: 38a742b0b04a9fa408d4119bfd96138b, type: 3}
-  m_PrefabInstance: {fileID: 1398092833}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!1 &871557432
 GameObject:
   m_ObjectHideFlags: 0
@@ -22578,17 +22578,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Mask
   m_ShowMaskGraphic: 0
---- !u!114 &1009877669 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7374422576788530608, guid: 38a742b0b04a9fa408d4119bfd96138b, type: 3}
-  m_PrefabInstance: {fileID: 1398092833}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!1 &1011430490
 GameObject:
   m_ObjectHideFlags: 0
@@ -23845,6 +23834,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1058446068}
   m_CullTransparentMesh: 1
+--- !u!114 &1058708267 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7374422576788530608, guid: 38a742b0b04a9fa408d4119bfd96138b, type: 3}
+  m_PrefabInstance: {fileID: 1398092833}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!1 &1060687130
 GameObject:
   m_ObjectHideFlags: 0
@@ -25778,17 +25778,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 12931380}
     m_Modifications:
-    - target: {fileID: 33913456286481550, guid: 38a742b0b04a9fa408d4119bfd96138b, type: 3}
-      propertyPath: m_text
-      value: 'Challange Mode : None '
-      objectReference: {fileID: 0}
     - target: {fileID: 302783298298774197, guid: 38a742b0b04a9fa408d4119bfd96138b, type: 3}
       propertyPath: m_Name
       value: slot 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7374422576788530608, guid: 38a742b0b04a9fa408d4119bfd96138b, type: 3}
-      propertyPath: m_text
-      value: 'Data & Time : None '
       objectReference: {fileID: 0}
     - target: {fileID: 8374526229092406867, guid: 38a742b0b04a9fa408d4119bfd96138b, type: 3}
       propertyPath: m_Pivot.x
@@ -25981,17 +25973,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Mask
   m_ShowMaskGraphic: 0
---- !u!114 &1155850094 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 33913456286481550, guid: 38a742b0b04a9fa408d4119bfd96138b, type: 3}
-  m_PrefabInstance: {fileID: 1147980895}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!1 &1160196729
 GameObject:
   m_ObjectHideFlags: 0
@@ -26397,12 +26378,12 @@ MonoBehaviour:
   Slot1LoadGameButton: {fileID: 1398092835}
   Slot2LoadGameButton: {fileID: 1858816525}
   Slot3LoadGameButton: {fileID: 1147980897}
-  S1LoadchallangeText: {fileID: 871413030}
-  S2LoadchallangeText: {fileID: 1462012770}
-  S3LoadchallangeText: {fileID: 1155850094}
-  S1LoaddateTimeText: {fileID: 1009877669}
-  S2LoaddateTimeText: {fileID: 1637690404}
-  S3LoaddateTimeText: {fileID: 1976795970}
+  S1LoadchallangeText: {fileID: 1967542418}
+  S2LoadchallangeText: {fileID: 1430232356}
+  S3LoadchallangeText: {fileID: 1194299715}
+  S1LoaddateTimeText: {fileID: 1058708267}
+  S2LoaddateTimeText: {fileID: 209473939}
+  S3LoaddateTimeText: {fileID: 1231390764}
   CreditsButton: {fileID: 2063796945}
   GameplayButton: {fileID: 14902921}
   ControlsButton: {fileID: 1231808930}
@@ -26935,6 +26916,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1193136262}
   m_CullTransparentMesh: 1
+--- !u!114 &1194299715 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 33913456286481550, guid: 38a742b0b04a9fa408d4119bfd96138b, type: 3}
+  m_PrefabInstance: {fileID: 1147980895}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!1 &1194829690
 GameObject:
   m_ObjectHideFlags: 0
@@ -27932,6 +27924,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1223686901}
   m_CullTransparentMesh: 1
+--- !u!114 &1231390764 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7374422576788530608, guid: 38a742b0b04a9fa408d4119bfd96138b, type: 3}
+  m_PrefabInstance: {fileID: 1147980895}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!1 &1231808928
 GameObject:
   m_ObjectHideFlags: 0
@@ -32080,17 +32083,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 12931380}
     m_Modifications:
-    - target: {fileID: 33913456286481550, guid: 38a742b0b04a9fa408d4119bfd96138b, type: 3}
-      propertyPath: m_text
-      value: 'Challange Mode : None'
-      objectReference: {fileID: 0}
     - target: {fileID: 302783298298774197, guid: 38a742b0b04a9fa408d4119bfd96138b, type: 3}
       propertyPath: m_Name
       value: slot 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7374422576788530608, guid: 38a742b0b04a9fa408d4119bfd96138b, type: 3}
-      propertyPath: m_text
-      value: 'Data & Time : None '
       objectReference: {fileID: 0}
     - target: {fileID: 8374526229092406867, guid: 38a742b0b04a9fa408d4119bfd96138b, type: 3}
       propertyPath: m_Pivot.x
@@ -32827,6 +32822,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1427311092}
   m_CullTransparentMesh: 1
+--- !u!114 &1430232356 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 33913456286481550, guid: 38a742b0b04a9fa408d4119bfd96138b, type: 3}
+  m_PrefabInstance: {fileID: 1858816523}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!1 &1437583225
 GameObject:
   m_ObjectHideFlags: 0
@@ -33694,17 +33700,6 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_IsOn: 1
---- !u!114 &1462012770 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 33913456286481550, guid: 38a742b0b04a9fa408d4119bfd96138b, type: 3}
-  m_PrefabInstance: {fileID: 1858816523}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!1 &1462084826
 GameObject:
   m_ObjectHideFlags: 0
@@ -37515,17 +37510,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1629814108}
     m_Modifications:
-    - target: {fileID: 33913456286481550, guid: 38a742b0b04a9fa408d4119bfd96138b, type: 3}
-      propertyPath: m_text
-      value: 'Challange Mode : None'
-      objectReference: {fileID: 0}
     - target: {fileID: 302783298298774197, guid: 38a742b0b04a9fa408d4119bfd96138b, type: 3}
       propertyPath: m_Name
       value: slot 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7374422576788530608, guid: 38a742b0b04a9fa408d4119bfd96138b, type: 3}
-      propertyPath: m_text
-      value: 'Data & Time: None'
       objectReference: {fileID: 0}
     - target: {fileID: 8374526229092406867, guid: 38a742b0b04a9fa408d4119bfd96138b, type: 3}
       propertyPath: m_Pivot.x
@@ -38227,17 +38214,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1634496343}
   m_CullTransparentMesh: 1
---- !u!114 &1637690404 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7374422576788530608, guid: 38a742b0b04a9fa408d4119bfd96138b, type: 3}
-  m_PrefabInstance: {fileID: 1858816523}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!1 &1638384325
 GameObject:
   m_ObjectHideFlags: 0
@@ -43358,17 +43334,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 12931380}
     m_Modifications:
-    - target: {fileID: 33913456286481550, guid: 38a742b0b04a9fa408d4119bfd96138b, type: 3}
-      propertyPath: m_text
-      value: 'Challange Mode : None'
-      objectReference: {fileID: 0}
     - target: {fileID: 302783298298774197, guid: 38a742b0b04a9fa408d4119bfd96138b, type: 3}
       propertyPath: m_Name
       value: slot 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7374422576788530608, guid: 38a742b0b04a9fa408d4119bfd96138b, type: 3}
-      propertyPath: m_text
-      value: 'Data & Time : None '
       objectReference: {fileID: 0}
     - target: {fileID: 8374526229092406867, guid: 38a742b0b04a9fa408d4119bfd96138b, type: 3}
       propertyPath: m_Pivot.x
@@ -45987,6 +45955,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1964410118}
   m_CullTransparentMesh: 1
+--- !u!114 &1967542418 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 33913456286481550, guid: 38a742b0b04a9fa408d4119bfd96138b, type: 3}
+  m_PrefabInstance: {fileID: 1398092833}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!1 &1974712333
 GameObject:
   m_ObjectHideFlags: 0
@@ -46113,17 +46092,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1974712333}
   m_CullTransparentMesh: 1
---- !u!114 &1976795970 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7374422576788530608, guid: 38a742b0b04a9fa408d4119bfd96138b, type: 3}
-  m_PrefabInstance: {fileID: 1147980895}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!1 &1985018572
 GameObject:
   m_ObjectHideFlags: 0
@@ -48141,17 +48109,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1629814108}
     m_Modifications:
-    - target: {fileID: 33913456286481550, guid: 38a742b0b04a9fa408d4119bfd96138b, type: 3}
-      propertyPath: m_text
-      value: 'Challange Mode : None'
-      objectReference: {fileID: 0}
     - target: {fileID: 302783298298774197, guid: 38a742b0b04a9fa408d4119bfd96138b, type: 3}
       propertyPath: m_Name
       value: slot 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7374422576788530608, guid: 38a742b0b04a9fa408d4119bfd96138b, type: 3}
-      propertyPath: m_text
-      value: 'Data & Time : None'
       objectReference: {fileID: 0}
     - target: {fileID: 8374526229092406867, guid: 38a742b0b04a9fa408d4119bfd96138b, type: 3}
       propertyPath: m_Pivot.x
@@ -49060,15 +49020,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 33913456286481550, guid: 38a742b0b04a9fa408d4119bfd96138b, type: 3}
       propertyPath: m_text
-      value: 'Challange Mode: None'
+      value: 'Challange Mode :'
       objectReference: {fileID: 0}
     - target: {fileID: 302783298298774197, guid: 38a742b0b04a9fa408d4119bfd96138b, type: 3}
       propertyPath: m_Name
       value: slot 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7374422576788530608, guid: 38a742b0b04a9fa408d4119bfd96138b, type: 3}
-      propertyPath: m_text
-      value: 'Data & Time : None'
       objectReference: {fileID: 0}
     - target: {fileID: 8374526229092406867, guid: 38a742b0b04a9fa408d4119bfd96138b, type: 3}
       propertyPath: m_Pivot.x

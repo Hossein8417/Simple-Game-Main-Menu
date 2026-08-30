@@ -39,11 +39,23 @@ public class UIRefrences : MonoBehaviour
     public Button Slot1NewGameButton;
     public Button Slot2NewGameButton;
     public Button Slot3NewGameButton;
+    public TMP_Text S1challangeText;
+    public TMP_Text S2challangeText;
+    public TMP_Text S3challangeText;
+    public TMP_Text S1dateTimeText;
+    public TMP_Text S2dateTimeText;
+    public TMP_Text S3dateTimeText;
 
     [Header("{LoadGame}Items")]
     public Button Slot1LoadGameButton;
     public Button Slot2LoadGameButton;
     public Button Slot3LoadGameButton;
+    public TMP_Text S1LoadchallangeText;
+    public TMP_Text S2LoadchallangeText;
+    public TMP_Text S3LoadchallangeText;
+    public TMP_Text S1LoaddateTimeText;
+    public TMP_Text S2LoaddateTimeText;
+    public TMP_Text S3LoaddateTimeText;
 
     [Header("{ExtrasMenu}Items")]
     public Button CreditsButton;

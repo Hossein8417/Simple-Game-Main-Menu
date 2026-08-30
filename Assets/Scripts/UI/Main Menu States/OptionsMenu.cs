@@ -19,7 +19,6 @@ public class OptionsMenu : IState
     }
     public void UpdateState()
     {
-        //other logics
         CheckInput();
         Manager.refrences.GameplayButton.onClick.AddListener(OnGameplayButtonPressed);
         Manager.refrences.ControlsButton.onClick.AddListener(OnControlsButtonPressed);

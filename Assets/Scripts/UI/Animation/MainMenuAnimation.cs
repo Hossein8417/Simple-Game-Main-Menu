@@ -21,18 +21,14 @@ public class MainMenuAnimation : MonoBehaviour, IPointerEnterHandler, IPointerEx
     {
         currentTween?.Kill();
 
-        currentTween = transform.DOScale(originalScale * scaleMultiplier, duration)
-            .SetEase(easeType)
-            .SetUpdate(true);
+        currentTween = transform.DOScale(originalScale * scaleMultiplier, duration).SetEase(easeType).SetUpdate(true);
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
         currentTween?.Kill();
 
-        currentTween = transform.DOScale(originalScale, duration)
-            .SetEase(easeType)
-            .SetUpdate(true);
+        currentTween = transform.DOScale(originalScale, duration).SetEase(easeType).SetUpdate(true);
     }
 
     void OnDestroy()

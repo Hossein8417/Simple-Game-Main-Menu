@@ -20,7 +20,6 @@ public class KeyBindingsMenu : IState
     }
     public void UpdateState()
     {
-        //other logics
         CheckInput();
     }
     public void Hide()

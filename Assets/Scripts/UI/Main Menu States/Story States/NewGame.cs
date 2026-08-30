@@ -20,7 +20,6 @@ public class NewGame : IState
     }
     public void UpdateState()
     {
-        //other logics
         CheckInput();
     }
     public void Hide()

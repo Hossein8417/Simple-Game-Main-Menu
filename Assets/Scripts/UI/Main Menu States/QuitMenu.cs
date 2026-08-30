@@ -29,7 +29,6 @@ public class QuitMenu : IState
 
     public void OnQuitButtonClicked() { 
         Application.Quit();
-        Debug.Log("Game Closed!");
     }
     public void OnQuitButtonNotClicked() {
         Manager.ChangeState(States.MainMenu);
