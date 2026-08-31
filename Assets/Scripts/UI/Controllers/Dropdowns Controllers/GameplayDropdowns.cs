@@ -1,8 +1,5 @@
 using System.Collections.Generic;
 using UnityEngine;
-//aval az hame : har bar ke vared bazi mishim bazi bayad check kone ke age data i az ghabl vojod dare (user) ono begire , age nist data default bazi ro 
-//dowoman vazi bayad ye halat default baraye settings dashte bashe va vaghti avalin bar hast ono bekhone vagar na settingi ke player set mikone bashe
-//sevoman in setting haye default bayad baraye avalin bar set shode bashan
 
 public class GameplayDropdowns : MonoBehaviour 
 {

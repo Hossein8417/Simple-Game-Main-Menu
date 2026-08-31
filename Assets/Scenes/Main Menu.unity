@@ -21545,6 +21545,7 @@ GameObject:
   - component: {fileID: 982177260}
   - component: {fileID: 982177261}
   - component: {fileID: 982177262}
+  - component: {fileID: 982177263}
   m_Layer: 0
   m_Name: GameDataManager
   m_TagString: Untagged
@@ -21596,7 +21597,23 @@ MonoBehaviour:
   defaultSubtitlesMode: 0
   defaultGameHintMode: 0
   defaultTutorialMode: 0
-  defaultPhotoMode: 0
+  defaultPhotoMode: 1
+--- !u!114 &982177263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 982177259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b0626855d107ce42ab468d472020970, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ControlsSliders
+  manager: {fileID: 1168714886}
+  defaultMouseSentivityValue: 50
+  defaultCameraSentivityValue: 50
+  defaultControllerSentivityValue: 50
 --- !u!1 &983424635
 GameObject:
   m_ObjectHideFlags: 0
@@ -26343,7 +26360,6 @@ GameObject:
   - component: {fileID: 1168714886}
   - component: {fileID: 1168714885}
   - component: {fileID: 1168714887}
-  - component: {fileID: 1168714889}
   - component: {fileID: 1168714890}
   - component: {fileID: 1168714891}
   m_Layer: 0
@@ -26499,19 +26515,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71ae0d4cf24953249a96cc01ee11ad48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PanelsController
---- !u!114 &1168714889
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1168714865}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ede88666e361fd4a8ce175db13ea745, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SlidersController
-  manager: {fileID: 1168714886}
 --- !u!114 &1168714890
 MonoBehaviour:
   m_ObjectHideFlags: 0

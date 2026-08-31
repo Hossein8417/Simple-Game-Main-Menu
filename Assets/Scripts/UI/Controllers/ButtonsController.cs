@@ -48,6 +48,7 @@ public class ButtonsController : MonoBehaviour
     }
 
     #endregion
+
     #region Load Methods
     private void LoadS1GameValues()
     {
@@ -66,6 +67,7 @@ public class ButtonsController : MonoBehaviour
             manager.refrences.S3LoadchallangeText, manager.refrences.S3LoaddateTimeText);
     }
     #endregion
+
     #region General Methods
     private void AddButtonsListeners()
     {
@@ -90,6 +92,8 @@ public class ButtonsController : MonoBehaviour
         slotDataTimeText.text = $"Date & Time : {dateTime}";
     }
     private void GetLoadInformationToButtons() {
+        //must take data and settings from player prefs
+        //and when new game saved, this information must save to player prefs to give this info's to other sections
         int savedChallange = PlayerPrefs.GetInt(GameData.CHALLANGE_MODE);
         print($"Challange set to : {(ChallangeLevel)savedChallange}");
     }

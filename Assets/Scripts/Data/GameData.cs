@@ -1,8 +1,4 @@
 using UnityEngine;
-//save game => وقتی بازی سیو میشه دیگه مهم نیست باز ران باشه یا نه اون اطلاعات تو دیسک سیو میشن و دیگه نباید حذف بشن 
-//load game => وقتی بازی لود میشه فقط باید اطلاعات قبلی رو بخونه واگر اطلاعات قبلی نبود اطلاعات دیفالت 
-//in this script first of all must complete other player prefs after that must refactor code and for last changing of the code , must create save and load methods to use it everywhere!
-
 public class GameData : MonoBehaviour
 { 
     public static GameData Instance { get; private set; }
@@ -12,7 +8,10 @@ public class GameData : MonoBehaviour
     public const string SUBTITLE_MODE = "SubtitleMode";
     public const string GAME_HINT_MODE = "GameHintMode";
     public const string TUTORIALS_MODE = "TutorialsMode";
-    public const string PHOTO_MODE = "PhotoMode";   
+    public const string PHOTO_MODE = "PhotoMode";
+    public const string MOUSE_SENTIVITY_VALUE = "MouseSentivityValue";
+    public const string CAMERA_SENTIVITY_VALUE = "CameraSentivityValue";
+    public const string CONTROLLER_SENTIVITY_VALUE = "ControllerSentivityValue";
 
     private void Awake()
     {
