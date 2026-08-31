@@ -21544,6 +21544,7 @@ GameObject:
   m_Component:
   - component: {fileID: 982177260}
   - component: {fileID: 982177261}
+  - component: {fileID: 982177262}
   m_Layer: 0
   m_Name: GameDataManager
   m_TagString: Untagged
@@ -21578,6 +21579,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5186aeec616548a4c8d90e72b9647709, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameData
+--- !u!114 &982177262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 982177259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6b04624db8b2a14d80771335a7235b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameplayDropdowns
+  _manager: {fileID: 1168714886}
+  defaultChallangeLevel: 1
+  defaultSubtitlesMode: 0
+  defaultGameHintMode: 0
+  defaultTutorialMode: 0
+  defaultPhotoMode: 0
 --- !u!1 &983424635
 GameObject:
   m_ObjectHideFlags: 0
@@ -26174,7 +26193,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::VersionShower
   versionText: {fileID: 1754264326}
-  versionString: v1.66
+  versionString: v1.69
 --- !u!1 &1164842328
 GameObject:
   m_ObjectHideFlags: 0
@@ -26324,7 +26343,6 @@ GameObject:
   - component: {fileID: 1168714886}
   - component: {fileID: 1168714885}
   - component: {fileID: 1168714887}
-  - component: {fileID: 1168714888}
   - component: {fileID: 1168714889}
   - component: {fileID: 1168714890}
   - component: {fileID: 1168714891}
@@ -26481,19 +26499,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71ae0d4cf24953249a96cc01ee11ad48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PanelsController
---- !u!114 &1168714888
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1168714865}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 214181295b8dbf94793e8200c7f77804, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DropdownsControllers
-  manager: {fileID: 1168714886}
 --- !u!114 &1168714889
 MonoBehaviour:
   m_ObjectHideFlags: 0

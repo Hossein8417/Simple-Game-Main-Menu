@@ -1,24 +1,31 @@
 using System.Collections.Generic;
 using UnityEngine;
+//aval az hame : har bar ke vared bazi mishim bazi bayad check kone ke age data i az ghabl vojod dare (user) ono begire , age nist data default bazi ro 
+//dowoman vazi bayad ye halat default baraye settings dashte bashe va vaghti avalin bar hast ono bekhone vagar na settingi ke player set mikone bashe
+//sevoman in setting haye default bayad baraye avalin bar set shode bashan
+
 public class GameplayDropdowns : MonoBehaviour 
 {
     [SerializeField]
     private UIManager _manager;
 
-    // default modes
-    ChallangeLevel defaultChallangeLevel;
-    SubtitlesMode defaultSubtitlesMode;
-    GameHintMode defaultGameHintMode;
-    TutorialsMode defaultTutorialMode;
-    PhotoMode defaultPhotoMode;
-    private void Awake()
-    {
-        InitialDefaultGameplay();
-        
-        DropdownsListeners();
-    }
+    [Header("Defualt Settings")]
+    [SerializeField]
+    private ChallangeLevel defaultChallangeLevel;
 
-    private void Start()
+    [SerializeField]
+    private SubtitlesMode defaultSubtitlesMode;
+
+    [SerializeField]
+    private GameHintMode defaultGameHintMode;
+
+    [SerializeField]
+    private TutorialsMode defaultTutorialMode;
+
+    [SerializeField]
+    private PhotoMode defaultPhotoMode;
+
+    private void Awake()
     {
         ChallangeOptions();
         SubtitleOptions();
@@ -26,14 +33,11 @@ public class GameplayDropdowns : MonoBehaviour
         TutorialOptions();
         PhotoModeOptions();
 
+        LoadData();
 
-        //these methods can go to game data class for save and load methods
-        LoadDefaultChallangeLevel();
-        LoadDefaultSubtitleMode();
-        LoadDefaultGameHintMode();
-        LoadDefaultTutorialMode();
-        LoadDefaultPhotoMode();
+        DropdownsListeners();
     }
+
     #region OnDropdownsValuesChanged
     public void OnChallangeChanged(int index)
     {
@@ -134,91 +138,110 @@ public class GameplayDropdowns : MonoBehaviour
     #endregion
 
     #region LoadDefaultValues Methods
-    //this is default levels/modes
+
     private void LoadDefaultChallangeLevel()
     {
-        int defaultChallangeValue = PlayerPrefs.GetInt(GameData.CHALLANGE_MODE, (int)defaultChallangeLevel);
+        int savedChallengeMode = PlayerPrefs.GetInt(
+            GameData.CHALLANGE_MODE,
+            (int)defaultChallangeLevel
+        );
 
-        if (defaultChallangeValue >= 0 && defaultChallangeValue < System.Enum.GetValues(typeof(ChallangeLevel)).Length)
-        {
-            _manager.refrences.ChallangeDropdown.value = defaultChallangeValue;
-            _manager.refrences.ChallangeDropdown.RefreshShownValue();
-        }
-        else
-        {
-            _manager.refrences.ChallangeDropdown.value = (int)defaultChallangeLevel;
-            _manager.refrences.ChallangeDropdown.RefreshShownValue();
-        }
-    } 
-    private void LoadDefaultSubtitleMode() {
-        int savedSubtitleMode = PlayerPrefs.GetInt(GameData.SUBTITLE_MODE, (int)defaultSubtitlesMode);
+        int optionCount = System.Enum.GetValues(typeof(ChallangeLevel)).Length;
 
-        if (savedSubtitleMode >= 0 && savedSubtitleMode < System.Enum.GetValues(typeof(SubtitlesMode)).Length)
+        if (savedChallengeMode < 0 || savedChallengeMode >= optionCount)
         {
-            _manager.refrences.GameplaySubtitlesDropdown.value = savedSubtitleMode;
-            _manager.refrences.GameplaySubtitlesDropdown.RefreshShownValue();
+            savedChallengeMode = (int)defaultChallangeLevel;
         }
-        else
-        {
-            _manager.refrences.GameplaySubtitlesDropdown.value = (int)defaultChallangeLevel;
-            _manager.refrences.GameplaySubtitlesDropdown.RefreshShownValue();
-        }
+
+        _manager.refrences.ChallangeDropdown.value = savedChallengeMode;
+        _manager.refrences.ChallangeDropdown.RefreshShownValue();
     }
-    private void LoadDefaultGameHintMode() {
-        int savedMode = PlayerPrefs.GetInt(GameData.GAME_HINT_MODE, (int)defaultGameHintMode);
 
-        if (savedMode >= 0 && savedMode < System.Enum.GetValues(typeof(GameHintMode)).Length)
+
+    private void LoadDefaultSubtitleMode()
+    {
+        int savedSubtitleMode = PlayerPrefs.GetInt(
+            GameData.SUBTITLE_MODE,
+            (int)defaultSubtitlesMode
+        );
+
+        int optionCount = System.Enum.GetValues(typeof(SubtitlesMode)).Length;
+
+        if (savedSubtitleMode < 0 || savedSubtitleMode >= optionCount)
         {
-            _manager.refrences.GameHintDropdown.value = savedMode;
-            _manager.refrences.GameHintDropdown.RefreshShownValue();
-        }
-        else
-        {
-            _manager.refrences.GameHintDropdown.value = (int)defaultGameHintMode;
-            _manager.refrences.GameHintDropdown.RefreshShownValue();
+            savedSubtitleMode = (int)defaultSubtitlesMode;
         }
 
+        _manager.refrences.GameplaySubtitlesDropdown.value = savedSubtitleMode;
+        _manager.refrences.GameplaySubtitlesDropdown.RefreshShownValue();
     }
-    private void LoadDefaultTutorialMode() {
-        int savedMode = PlayerPrefs.GetInt(GameData.TUTORIALS_MODE, (int)defaultTutorialMode);
 
-        if (savedMode >= 0 && savedMode < System.Enum.GetValues(typeof(TutorialsMode)).Length)
-        {
-            _manager.refrences.TuturialsDropdown.value = savedMode;
-            _manager.refrences.TuturialsDropdown.RefreshShownValue();
-        }
-        else
-        {
 
-            _manager.refrences.TuturialsDropdown.value = (int) defaultTutorialMode;
-            _manager.refrences.TuturialsDropdown.RefreshShownValue();
+    private void LoadDefaultGameHintMode()
+    {
+        int savedGameHintMode = PlayerPrefs.GetInt(
+            GameData.GAME_HINT_MODE,
+            (int)defaultGameHintMode
+        );
+
+        int optionCount = System.Enum.GetValues(typeof(GameHintMode)).Length;
+
+        if (savedGameHintMode < 0 || savedGameHintMode >= optionCount)
+        {
+            savedGameHintMode = (int)defaultGameHintMode;
         }
-        
+
+        _manager.refrences.GameHintDropdown.value = savedGameHintMode;
+        _manager.refrences.GameHintDropdown.RefreshShownValue();
     }
-    private void LoadDefaultPhotoMode() {
-        int savedMode = PlayerPrefs.GetInt(GameData.PHOTO_MODE, (int)defaultPhotoMode);
 
-        if (savedMode >= 0 && savedMode < System.Enum.GetValues(typeof(PhotoMode)).Length)
+
+    private void LoadDefaultTutorialMode()
+    {
+        int savedTutorialMode = PlayerPrefs.GetInt(
+            GameData.TUTORIALS_MODE,
+            (int)defaultTutorialMode
+        );
+
+        int optionCount = System.Enum.GetValues(typeof(TutorialsMode)).Length;
+
+        if (savedTutorialMode < 0 || savedTutorialMode >= optionCount)
         {
-            _manager.refrences.PhotoModeDropdown.value = savedMode;
-            _manager.refrences.PhotoModeDropdown.RefreshShownValue();
+            savedTutorialMode = (int)defaultTutorialMode;
         }
-        else {
-            _manager.refrences.PhotoModeDropdown.value = (int)defaultPhotoMode;
-            _manager.refrences.PhotoModeDropdown.RefreshShownValue();
+
+        _manager.refrences.TuturialsDropdown.value = savedTutorialMode;
+        _manager.refrences.TuturialsDropdown.RefreshShownValue();
+    }
+
+
+    private void LoadDefaultPhotoMode()
+    {
+        int savedPhotoMode = PlayerPrefs.GetInt(
+            GameData.PHOTO_MODE,
+            (int)defaultPhotoMode
+        );
+
+        int optionCount = System.Enum.GetValues(typeof(PhotoMode)).Length;
+
+        if (savedPhotoMode < 0 || savedPhotoMode >= optionCount)
+        {
+            savedPhotoMode = (int)defaultPhotoMode;
         }
+
+        _manager.refrences.PhotoModeDropdown.value = savedPhotoMode;
+        _manager.refrences.PhotoModeDropdown.RefreshShownValue();
     }
 
     #endregion
 
     #region General
-    private void InitialDefaultGameplay() {
-        defaultChallangeLevel = ChallangeLevel.Easy;
-        defaultSubtitlesMode = SubtitlesMode.Off;
-        defaultGameHintMode = GameHintMode.Off;
-        defaultTutorialMode = TutorialsMode.Off;
-        defaultPhotoMode = PhotoMode.Off;
-
+    private void LoadData() {
+        LoadDefaultChallangeLevel();
+        LoadDefaultSubtitleMode();
+        LoadDefaultGameHintMode();
+        LoadDefaultTutorialMode();
+        LoadDefaultPhotoMode();
     }
     private void DropdownsListeners() {
         _manager.refrences.ChallangeDropdown.onValueChanged.AddListener(OnChallangeChanged);
