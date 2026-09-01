@@ -1,77 +1,151 @@
 using System.Collections.Generic;
 using UnityEngine;
-
+//game must take resolutions = done 
+//must set defualt resolution = done
+//an system that with selecting res from dropdown , current resolution change to selected res = done 
 public class DisplayDropdowns : MonoBehaviour
 {
-    //private Resolution[] displayResolutions;
-    //private List<string> displayResolutionOptions = new List<string>();
+    [SerializeField]
+    private UIManager manager;
 
-    //private Resolution[] renderedResolutions;
-    //private List<string> renderedResolutionOptions = new List<string>();
+    private Resolution[] displayResolutions;
+    private Resolution[] renderedResolutions;
+    private void Awake()
+    {
+        DisplayResolutionOptions();
+        RenderedResolutionOptions();
 
-    //private void Awake()
-    //{
-    //    manager.refrences.DisplayResolutionDropdown.ClearOptions();
-    //    manager.refrences.RenderedResolutionDropdown.ClearOptions();
+        LoadData();
 
-    //    manager.refrences.DisplayResolutionDropdown.AddOptions(displayResolutionOptions);
-    //    manager.refrences.RenderedResolutionDropdown.AddOptions(displayResolutionOptions);
+        DisplayListeners();
+        GetUserGPUInfo();
+    }
 
-    //    manager.refrences.DisplayResolutionDropdown.onValueChanged.AddListener(OnDisplayResolutionChanged);
-    //    manager.refrences.RenderedResolutionDropdown.onValueChanged.AddListener(OnRenderedResolutionChanged);
-    //}
-    //private void GetDisplayResolutions()
-    //{
+    #region LoadDefaultSettings
+    private void LoadDefualtDisplayResolution() {
+        if (!PlayerPrefs.HasKey(GameData.DISPLAY_RESOLUTION))
+        {
+            //default resolution
 
-    //    displayResolutions = Screen.resolutions;
+            int screenWidth = 1280;
+            int screenHeight = 720;
 
-    //    for (int i = 0; i < displayResolutions.Length; i++)
-    //    {
-    //        string option = $"{displayResolutions[i].width} X {displayResolutions[i].height} @ {displayResolutions[i].refreshRateRatio}Hz";
+            Screen.SetResolution(screenWidth, screenHeight,Screen.fullScreenMode);
+        }
+        else {
+            ApplyDisplayResolution(PlayerPrefs.GetInt(GameData.DISPLAY_RESOLUTION));
+        }  
+    }
+    private void LoadDefualtRenderedResolution()
+    {
 
-    //        displayResolutionOptions.Add(option);
-    //    }
-    //}
+    }
+    #endregion
 
-    //private void GetRenderedResolutions()
-    //{
+    #region OnValuesChanged
+    public void OnDisplayResolutionChanged(int index)
+    {
+        Debug.Log($"display reslotion changed to {index}");
+        ApplyDisplayResolution(index);
+        PlayerPrefs.SetInt(GameData.DISPLAY_RESOLUTION, index);
+        PlayerPrefs.Save();
+    }
+    public void OnRenderedResolutionChanged(int index)
+    {
+        Debug.Log($"rendered reslotion changed to {index}");
+        ApplyRenderedResolution(index);
+        PlayerPrefs.SetInt(GameData.RENDERED_RESOLUTION, index);
+        PlayerPrefs.Save();
+    }
+    #endregion
 
-    //    renderedResolutions = Screen.resolutions;
+    #region General
+    private void DisplayListeners() {
+        manager.refrences.DisplayResolutionDropdown.onValueChanged.AddListener(OnDisplayResolutionChanged);
+        manager.refrences.RenderedResolutionDropdown.onValueChanged.AddListener(OnRenderedResolutionChanged);
+    }
 
-    //    for (int i = 0; i < renderedResolutions.Length; i++)
-    //    {
-    //        string option = $"{renderedResolutions[i].width} X {renderedResolutions[i].height} @ {renderedResolutions[i].refreshRateRatio}Hz";
+    private void GetUserGPUInfo()
+    {
+        string gpuName = SystemInfo.graphicsDeviceName;
+        manager.refrences.gpuNameText.text = gpuName;
+    }
 
-    //        renderedResolutionOptions.Add(option);
-    //    }
-    //}
-    //private void GetDisplayAspects()
-    //{
-    //    //this logic must improve
-    //    //Debug.Log($"{Screen.width/Screen.height}");
+    private void LoadData() {
+        LoadDefualtDisplayResolution();
+        LoadDefualtRenderedResolution();
+    }
 
-    //}
+    private void ApplyDisplayResolution(int index)
+    {
+        Resolution res = displayResolutions[index];
 
-    //private void GetUserGPUInfo()
-    //{
-    //    string gpuName = SystemInfo.graphicsDeviceName;
-    //    manager.refrences.gpuNameText.text = gpuName;
-    //}
-    //private void GetUserMonitorsList()
-    //{
-    //    string displayMonitor = Display.main.ToString();
+        Screen.SetResolution(res.width, res.height, Screen.fullScreenMode);
+    }
 
-    //    manager.refrences.DisplayMonitorDropdown.name = displayMonitor;
+    private void ApplyRenderedResolution(int index)
+    {
+        Resolution res = renderedResolutions[index];
 
-    //    //bug
-    //}
+        Screen.SetResolution(res.width, res.height, Screen.fullScreenMode);
+    }
+    #endregion
 
-    //public void OnDisplayResolutionChanged(int index)
-    //{
-    //    Debug.Log($"reslotion changed to {index}");
-    //}
-    //public void OnRenderedResolutionChanged(int index)
-    //{
-    //    Debug.Log($"rendered reslotion changed to {index}");
-    //}
+    #region SettingsOptions
+    private void DisplayResolutionOptions()
+    {
+        displayResolutions = new Resolution[]
+        {
+            new Resolution { width = 640, height = 480 },
+            new Resolution { width = 800, height = 600 },
+            new Resolution { width = 1024, height = 768 },
+            new Resolution { width = 1280, height = 720 },
+            new Resolution { width = 1280, height = 800 },
+            new Resolution { width = 1366, height = 768 },
+            new Resolution { width = 1440, height = 900 },
+            new Resolution { width = 1600, height = 900 },
+            new Resolution { width = 1680, height = 1050 },
+            new Resolution { width = 1920, height = 1080 }
+
+        };
+        List<string> displayResolutionOptions = new List<string>();
+
+        foreach (var resolution in displayResolutions)
+        {
+            displayResolutionOptions.Add($"{resolution.width} X {resolution.height}");
+        }
+
+        manager.refrences.DisplayResolutionDropdown.ClearOptions();
+
+        manager.refrences.DisplayResolutionDropdown.AddOptions(displayResolutionOptions);
+    }
+
+    private void RenderedResolutionOptions() {
+
+        renderedResolutions = new Resolution[] {
+            new Resolution { width = 640, height = 360 },
+            new Resolution { width = 1024, height = 576 },
+            new Resolution { width = 1280, height = 720 },  
+            new Resolution { width = 1366, height = 768 },   
+            new Resolution { width = 1600, height = 900 },   
+            new Resolution { width = 1680, height = 1050 },   
+            new Resolution { width = 1776, height = 1000 },
+            new Resolution { width = 1280, height = 720 },   
+            new Resolution { width = 1366, height = 768 },   
+            new Resolution { width = 1600, height = 900 },    
+            new Resolution { width = 1680, height = 1050 },  
+            new Resolution { width = 1776, height = 1000 },
+            new Resolution { width = 1920, height = 1080 }
+        };
+        List<string> renderedResolutionOptions = new List<string>();
+
+        manager.refrences.RenderedResolutionDropdown.ClearOptions();
+
+        foreach (var resolution in renderedResolutions)
+        {
+            renderedResolutionOptions.Add($"{resolution.width} X {resolution.height}");
+        }
+        manager.refrences.RenderedResolutionDropdown.AddOptions(renderedResolutionOptions);
+    }
+    #endregion
 }
