@@ -92,16 +92,18 @@ public class UIRefrences : MonoBehaviour
 
     [Header("{DisplayMenu}Items")]
     public TMP_Dropdown DisplayResolutionDropdown;
-    public TMP_Dropdown RenderedResolutionDropdown;
     public TMP_Text gpuNameText;
     public TMP_Dropdown DisplayMonitorDropdown;
     public TMP_Dropdown AspectRatioDropdown;
     public Toggle VsyncToggle;
+    public Button ApplyDisplaySettingsButton;
+    public Button ResetDisplaySettingsButton;
 
     [Header("{AdvancedGraphicsMenu}Items")]
     public TMP_Text EstimatedGraphicsUsageValueText;
     public TMP_Text TotalValueText;
     public Button GraphicsResetButton;
+    public Button ApplyGraphicsButton;
     public TMP_Dropdown PresetDropdown;
     public TMP_Dropdown TexturesDropdown;
     public TMP_Dropdown ModelQualityDropdown;

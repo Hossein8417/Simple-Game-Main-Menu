@@ -1,4 +1,3 @@
-using Unity.Collections;
 using UnityEngine;
 public class GameData : MonoBehaviour
 { 
@@ -14,8 +13,14 @@ public class GameData : MonoBehaviour
     public const string CAMERA_SENTIVITY_VALUE = "CameraSentivityValue";
     public const string CONTROLLER_SENTIVITY_VALUE = "ControllerSentivityValue";
     public const string DISPLAY_RESOLUTION = "DisplayResolution";
-    public const string RENDERED_RESOLUTION = "RenderedResolution";
-
+    public const string V_SYNC = "V-Sync";
+    public const string GRAPHICS_PRESET = "GraphicsPreset";
+    public const string TEXTURE_LEVEL = "TextureLevel";
+    public const string MODEL_LEVEL = "ModelLevel";
+    public const string ANISITROPIC_FILTER = "AnisitropicFilter";
+    public const string SHADOWS_LEVEL = "ShadowsLevel";
+    public const string REFLECTIONS_LEVEL = "ReflectionsLevel";
+    public const string AMBIENT_OCCLUSION = "AmbientOcclusion";
     private void Awake()
     {
         if (Instance != null)
