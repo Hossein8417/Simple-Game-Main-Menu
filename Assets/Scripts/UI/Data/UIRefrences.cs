@@ -114,16 +114,12 @@ public class UIRefrences : MonoBehaviour
     public Slider GraphicsUsageSlider;
 
     [Header("{AudioMenu}Items")]
-    public TMP_Text OverallValueText;
+    public TMP_Text WorldValueText;
     public TMP_Text EffectsValueText;
     public TMP_Text MusicValueText;
-    public TMP_Text DialogueValueText;
-    public TMP_Text CinematicsValueText;
-    public Slider OverallSlider;
+    public Slider WorldSlider;
     public Slider EffectsSlider;
     public Slider MusicSlider;
-    public Slider DialogueSlider;
-    public Slider CinematicsSlider;
     public Button AudioResetButton;
 
     [Header("{Language}Items")]

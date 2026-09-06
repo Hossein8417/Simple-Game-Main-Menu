@@ -5,10 +5,19 @@ public class AudioSlidersControllers : MonoBehaviour
     [SerializeField]
     private UIManager manager;
 
+    [SerializeField]
+    private AudioSource worldAudio;
+
+    [SerializeField]
+    private AudioSource effectsAudio;
+
+    [SerializeField]
+    private AudioSource musicAudio;
+
     [Header("Settings")]
 
     [SerializeField]
-    private float defaultOverallAudioVolume;
+    private float defaultWorldAudioVolume;
 
     [SerializeField]
     private float defaultEffectsAudioVolume;
@@ -18,7 +27,10 @@ public class AudioSlidersControllers : MonoBehaviour
 
     private void Awake()
     {
-        OverallVolumeSettings();
+        worldAudio.Play();
+        musicAudio.Play();
+
+        WorldVolumeSettings();
         EffectsVolumeSettings();
         MusicVolumeSettings();
 
@@ -26,21 +38,27 @@ public class AudioSlidersControllers : MonoBehaviour
 
         ListenToSliders();
     }
-
+    private void OnDestroy()
+    {
+        worldAudio.Stop();
+        musicAudio.Stop();
+    }
 
     #region LoadDefaultSettings
-    private void LoadDefaultOverallAudioVolume()
+    private void LoadDefaultWorldAudioVolume()
     {
-        float savedValue = PlayerPrefs.GetFloat(GameData.OVERALL_AUDIO, defaultOverallAudioVolume);
+        float savedValue = PlayerPrefs.GetFloat(GameData.WORLD_AUDIO, defaultWorldAudioVolume);
         if (savedValue > 100.0f || savedValue < 0)
         {
-            manager.refrences.OverallSlider.value = defaultOverallAudioVolume;
-            manager.refrences.OverallValueText.text = defaultOverallAudioVolume.ToString();
+            worldAudio.volume = defaultWorldAudioVolume / 100;
+            manager.refrences.WorldSlider.value = defaultWorldAudioVolume;
+            manager.refrences.WorldValueText.text = defaultWorldAudioVolume.ToString();
         }
         else
         {
-            manager.refrences.OverallSlider.value = savedValue;
-            manager.refrences.OverallValueText.text = savedValue.ToString();
+            worldAudio.volume = savedValue / 100;
+            manager.refrences.WorldSlider.value = savedValue;
+            manager.refrences.WorldValueText.text = savedValue.ToString();
         }
 
     }
@@ -49,11 +67,13 @@ public class AudioSlidersControllers : MonoBehaviour
         float savedValue = PlayerPrefs.GetFloat(GameData.EFFECTS_AUDIO, defaultEffectsAudioVolume);
         if (savedValue > 100.0f || savedValue < 0)
         {
+            effectsAudio.volume = defaultEffectsAudioVolume / 100;
             manager.refrences.EffectsSlider.value = defaultEffectsAudioVolume;
             manager.refrences.EffectsValueText.text = defaultEffectsAudioVolume.ToString();
         }
         else
         {
+            effectsAudio.volume = savedValue / 100;
             manager.refrences.EffectsSlider.value = savedValue;
             manager.refrences.EffectsValueText.text = savedValue.ToString();
         }
@@ -63,11 +83,13 @@ public class AudioSlidersControllers : MonoBehaviour
         float savedValue = PlayerPrefs.GetFloat(GameData.MUSIC_AUDIO, defaultMusicAudioVolume);
         if (savedValue > 100.0f || savedValue < 0)
         {
+            musicAudio.volume = defaultMusicAudioVolume / 100;
             manager.refrences.MusicSlider.value = defaultMusicAudioVolume;
             manager.refrences.MusicValueText.text = defaultMusicAudioVolume.ToString();
         }
         else
         {
+            musicAudio.volume = savedValue / 100;
             manager.refrences.MusicSlider.value = savedValue;
             manager.refrences.MusicValueText.text = savedValue.ToString();
         }
@@ -75,33 +97,39 @@ public class AudioSlidersControllers : MonoBehaviour
     #endregion 
 
     #region OnValuesChanged Methods
-    public void OnOverallAudioVolumeChanged(float value)
+    public void OnWorldAudioVolumeChanged(float value)
     {
-        manager.refrences.OverallValueText.text = value.ToString();
-        PlayerPrefs.SetFloat(GameData.OVERALL_AUDIO, value);
+        manager.refrences.WorldSlider.value = value;
+        manager.refrences.WorldValueText.text = value.ToString();
+        worldAudio.volume = value / 100;
+        PlayerPrefs.SetFloat(GameData.WORLD_AUDIO, value);
         PlayerPrefs.Save();
 
     }
     public void OnEffectsAudioVolumeChanged(float value)
     {
+        manager.refrences.EffectsSlider.value = value;
         manager.refrences.EffectsValueText.text = value.ToString();
+        effectsAudio.volume = value / 100;
         PlayerPrefs.SetFloat(GameData.EFFECTS_AUDIO, value);
         PlayerPrefs.Save();
     }
     public void OnMusicAudioVolumeChanged(float value)
     {
+        manager.refrences.MusicSlider.value = value;
         manager.refrences.MusicValueText.text = value.ToString();
+        musicAudio.volume = value / 100;
         PlayerPrefs.SetFloat(GameData.MUSIC_AUDIO, value);
         PlayerPrefs.Save();
     }
     #endregion
 
     #region Settings
-    public void OverallVolumeSettings()
+    public void WorldVolumeSettings()
     {
-        manager.refrences.OverallSlider.minValue = 0.0f;
-        manager.refrences.OverallSlider.maxValue = 100.0f;
-        manager.refrences.OverallSlider.wholeNumbers = true;
+        manager.refrences.WorldSlider.minValue = 0.0f;
+        manager.refrences.WorldSlider.maxValue = 100.0f;
+        manager.refrences.WorldSlider.wholeNumbers = true;
     }
     public void EffectsVolumeSettings()
     {
@@ -120,14 +148,14 @@ public class AudioSlidersControllers : MonoBehaviour
     #region General
     private void ListenToSliders()
     {
-        manager.refrences.OverallSlider.onValueChanged.AddListener(OnOverallAudioVolumeChanged);
+        manager.refrences.WorldSlider.onValueChanged.AddListener(OnWorldAudioVolumeChanged);
         manager.refrences.EffectsSlider.onValueChanged.AddListener(OnEffectsAudioVolumeChanged);
         manager.refrences.MusicSlider.onValueChanged.AddListener(OnMusicAudioVolumeChanged);
     }
 
     private void LoadData()
     {
-        LoadDefaultOverallAudioVolume();
+        LoadDefaultWorldAudioVolume();
         LoadDefaultEffectsAudioVolume();
         LoadDefaultMusicAudioVolume();
     }

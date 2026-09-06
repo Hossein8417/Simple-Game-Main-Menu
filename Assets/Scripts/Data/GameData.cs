@@ -21,9 +21,12 @@ public class GameData : MonoBehaviour
     public const string SHADOWS_LEVEL = "ShadowsLevel";
     public const string REFLECTIONS_LEVEL = "ReflectionsLevel";
     public const string AMBIENT_OCCLUSION = "AmbientOcclusion";
-    public const string OVERALL_AUDIO = "OverallAudio";
+    public const string WORLD_AUDIO = "WorldAudio";
     public const string EFFECTS_AUDIO = "EffectsAudio";
     public const string MUSIC_AUDIO = "MusicAudio";
+    public const string TEXT_LANGUAGE = "TextLanguage";
+    public const string SUBTITLES_LANGUAGE = "SubtitlesLanguage";
+    public const string SPEECH_LANGUAGE = "SpeechLanguage";
     private void Awake()
     {
         if (Instance != null)
