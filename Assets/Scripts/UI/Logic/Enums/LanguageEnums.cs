@@ -1,17 +1,17 @@
 public enum TextLanguages
 {
     English,
-    Spanish,
-    French
+    French,
+    Spanish
 }
 public enum SubtitlesLanguages
 {
     English,
-    Spanish,
-    French
+    French,
+    Spanish
 }
 public enum SpeechLanguages {
     English,
-    Spanish,
-    French
+    French,
+    Spanish
 }

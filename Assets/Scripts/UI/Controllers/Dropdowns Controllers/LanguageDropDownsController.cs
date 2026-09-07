@@ -1,5 +1,6 @@
 using System.Collections.Generic;
-using Unity.VisualScripting;
+using UnityEngine.Localization.Settings;
+using UnityEngine.Localization;
 using UnityEngine;
 
 public class LanguageDropDownsController : MonoBehaviour
@@ -17,21 +18,33 @@ public class LanguageDropDownsController : MonoBehaviour
 
     [SerializeField]
     private SpeechLanguages defaultSpeechLan;
+
+    [SerializeField]
+    private string defaultLanguageLocale;
+
+
+
+    private List<Locale> availableLocals = new List<Locale>();
     private void Awake()
     {
         TextLanguageSettings();
         SubtitlesLanguageSettings();
         SpeechLanguageSettings();
 
-        LoadData();
-
         LanguageListeners();
     }
+
+    private void Start()
+    {
+        StartCoroutine(InitializeLocales());
+    }
+
     #region LoadDefaultValues
     private void LoadDefaultTextLan() {
         int savedLanguage = PlayerPrefs.GetInt(GameData.TEXT_LANGUAGE, (int)defaultTextLan);
-        if (savedLanguage < System.Enum.GetValues(typeof(TextLanguages)).Length ||
-            savedLanguage >= System.Enum.GetValues(typeof(TextLanguages)).Length)
+        
+
+        if (savedLanguage < 0 ||savedLanguage >= System.Enum.GetValues(typeof(TextLanguages)).Length)
         {
             manager.refrences.TextDropdown.value = (int)defaultTextLan;
             manager.refrences.TextDropdown.RefreshShownValue();
@@ -42,11 +55,9 @@ public class LanguageDropDownsController : MonoBehaviour
             manager.refrences.TextDropdown.RefreshShownValue();
         }
     }
-
     private void LoadDefaultSubtitlesLan() {
         int savedLanguage = PlayerPrefs.GetInt(GameData.SUBTITLES_LANGUAGE, (int)defaultSubtitlesLan);
-        if (savedLanguage < System.Enum.GetValues(typeof(SubtitlesLanguages)).Length ||
-            savedLanguage >= System.Enum.GetValues(typeof(SubtitlesLanguages)).Length)
+        if (savedLanguage < 0 || savedLanguage >= System.Enum.GetValues(typeof(SubtitlesLanguages)).Length)
         {
             manager.refrences.LanguageSubtitlesDropdown.value = (int)defaultSubtitlesLan;
             manager.refrences.LanguageSubtitlesDropdown.RefreshShownValue();
@@ -57,11 +68,9 @@ public class LanguageDropDownsController : MonoBehaviour
             manager.refrences.LanguageSubtitlesDropdown.RefreshShownValue();
         }
     }
-
     private void LoadDefaultSpeechLan() {
         int savedLanguage = PlayerPrefs.GetInt(GameData.SPEECH_LANGUAGE, (int)defaultSpeechLan);
-        if (savedLanguage < System.Enum.GetValues(typeof(SpeechLanguages)).Length || 
-            savedLanguage >= System.Enum.GetValues(typeof(SpeechLanguages)).Length)
+        if (savedLanguage < 0 || savedLanguage >= System.Enum.GetValues(typeof(SpeechLanguages)).Length)
         {
             manager.refrences.SpeechDropdown.value = (int)defaultSpeechLan;
             manager.refrences.SpeechDropdown.RefreshShownValue();
@@ -72,6 +81,30 @@ public class LanguageDropDownsController : MonoBehaviour
             manager.refrences.SpeechDropdown.RefreshShownValue();
         }
     }
+    private void LoadDefaultGameLanguage()
+    {
+        string savedLocale = PlayerPrefs.GetString(
+            GameData.LANGUAGE_LOCALE,
+            defaultLanguageLocale
+        );
+
+        int selectedIndex = 0;
+
+        for (int i = 0; i < availableLocals.Count; i++)
+        {
+            if (availableLocals[i].Identifier.Code == savedLocale)
+            {
+                selectedIndex = i;
+                break;
+            }
+        }
+
+        manager.refrences.TextDropdown.SetValueWithoutNotify(selectedIndex);
+        manager.refrences.TextDropdown.RefreshShownValue();
+
+        ChangeLanguage(selectedIndex);
+    }
+
     #endregion
 
     #region General
@@ -86,11 +119,38 @@ public class LanguageDropDownsController : MonoBehaviour
         manager.refrences.LanguageSubtitlesDropdown.onValueChanged.AddListener(OnSubtitlesLanChanged);
         manager.refrences.SpeechDropdown.onValueChanged.AddListener(OnSpeechLanChanged);
     }
+
+    private System.Collections.IEnumerator InitializeLocales()
+    {
+        yield return LocalizationSettings.InitializationOperation;
+
+        availableLocals = LocalizationSettings.AvailableLocales.Locales;
+
+        LoadDefaultGameLanguage();
+        LoadData();
+    }
+
+    private void ChangeLanguage(int index)
+    {
+        if (index < 0 || index >= availableLocals.Count)
+            return;
+
+        Locale selectedLocale = availableLocals[index];
+
+        LocalizationSettings.SelectedLocale = selectedLocale;
+
+        PlayerPrefs.SetString(
+            GameData.LANGUAGE_LOCALE,
+            selectedLocale.Identifier.Code
+        );
+
+        PlayerPrefs.Save();
+    }
     #endregion
 
     #region OnValues Changed
     private void OnTextLanChanged(int index) {
-        //text lan set to value
+        ChangeLanguage(index);
         PlayerPrefs.SetInt(GameData.TEXT_LANGUAGE, index);
         PlayerPrefs.Save();
     }
@@ -149,5 +209,5 @@ public class LanguageDropDownsController : MonoBehaviour
 
         manager.refrences.SpeechDropdown.AddOptions(options);
     }
-    #endregion
+    #endregion   
 }

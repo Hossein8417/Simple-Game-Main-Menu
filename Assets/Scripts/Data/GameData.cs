@@ -27,6 +27,7 @@ public class GameData : MonoBehaviour
     public const string TEXT_LANGUAGE = "TextLanguage";
     public const string SUBTITLES_LANGUAGE = "SubtitlesLanguage";
     public const string SPEECH_LANGUAGE = "SpeechLanguage";
+    public const string LANGUAGE_LOCALE = "LanguageLocale";
     private void Awake()
     {
         if (Instance != null)

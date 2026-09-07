@@ -98,7 +98,7 @@ public class UIManager : MonoBehaviour
         states.Add (States.Credits, creditsMenu);
     }
     private void InitialDefaultState() {
-        currentState = Get(States.OptionsMenu);
+        currentState = Get(States.EnterMenu);
         currentState.Show();
     }
     public IState Get(States state)
